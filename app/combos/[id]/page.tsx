@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: ComboPageProps): Promise<Meta
     if (!combo) {
       console.log(`❌ [Combo ${resolvedParams.id}] No encontrado`)
       return {
-        title: "Combo no encontrado - MaxiPet",
+        title: "Combo no encontrado - La Hornera",
         description: "El combo que buscas no está disponible.",
       }
     }
@@ -56,7 +56,7 @@ export async function generateMetadata({ params }: ComboPageProps): Promise<Meta
 
     console.log(`🌐 [Combo ${resolvedParams.id}] URL imagen final:`, imageUrl)
 
-    const title = `${combo.nombre} - Combo Especial | MaxiPet`
+    const title = `${combo.nombre} - Combo Especial | La Hornera`
     const description = combo.descripcion
       ? combo.descripcion.substring(0, 160) + '...'
       : `Aprovechá nuestro combo ${combo.nombre} con ${combo.descuento_porcentaje}% de descuento. ¡Ahorrá en grande!`
@@ -64,12 +64,12 @@ export async function generateMetadata({ params }: ComboPageProps): Promise<Meta
     return {
       title,
       description,
-      keywords: `${combo.nombre}, combo, descuento, alimento para perros y gatos, mascotas, cuotas, financiación, contado`,
+      keywords: `${combo.nombre}, combo, descuento, cerveza artesanal, craft beer, cuotas, financiación, contado`,
       openGraph: {
         type: 'website',
         locale: 'es_AR',
         url: `https://www.mundocuota.com.ar/combos/${resolvedParams.id}?share=final`,
-        siteName: 'MaxiPet',
+        siteName: 'La Hornera',
         title,
         description,
         images: [
@@ -91,7 +91,7 @@ export async function generateMetadata({ params }: ComboPageProps): Promise<Meta
   } catch (error) {
     console.error('Error generating metadata:', error)
     return {
-      title: "Combo - MaxiPet",
+      title: "Combo - La Hornera",
       description: "Descubre nuestros combos especiales con los mejores descuentos.",
     }
   }

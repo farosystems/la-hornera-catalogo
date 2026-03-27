@@ -34,7 +34,7 @@ export default function Footer() {
         {/* Contenido principal */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
 
-          {/* Columna 1: MaxiPet */}
+          {/* Columna 1: La Hornera */}
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
               {configuracion?.logo_url ? (
@@ -50,18 +50,18 @@ export default function Footer() {
               ) : (
                 <img
                   src="/LOGO2.png"
-                  alt="MaxiPet"
+                  alt="La Hornera"
                   className="h-12 w-auto"
                 />
               )}
               <div>
-                <h3 className="text-xl font-bold">MaxiPet</h3>
-                <p className="text-blue-200 text-sm">Tu tienda de alimento para perros y gatos de confianza</p>
+                <h3 className="text-xl font-bold">La Hornera</h3>
+                <p className="text-blue-200 text-sm">Tu cervecería artesanal de confianza</p>
               </div>
             </div>
             <p className="text-blue-200 text-sm leading-relaxed">
-              Especialistas en alimento para perros y gatos con los mejores planes de financiación.
-              Hacemos que tus sueños sean realidad con cuotas accesibles.
+              Especialistas en cervezas artesanales de calidad premium con los mejores planes de financiación.
+              Hacemos que tus celebraciones sean inolvidables con cuotas accesibles.
             </p>
           </div>
 
@@ -127,8 +127,8 @@ export default function Footer() {
         <div className="border-t border-blue-400 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-blue-200 text-sm text-center md:text-left">
-              © 2025 MaxiPet. Todos los derechos reservados.
-              Especialistas en alimento para perros y gatos con financiación.
+              © 2025 La Hornera. Todos los derechos reservados.
+              Especialistas en cervezas artesanales con financiación.
             </p>
             <div className="flex items-center space-x-4">
               <Link href="/" className="text-blue-200 hover:text-white transition-colors duration-300 text-sm">

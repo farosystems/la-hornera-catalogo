@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: ProductoPageProps): Promise<M
     
     if (!product) {
       return {
-        title: "Producto no encontrado - MaxiPet",
+        title: "Producto no encontrado - La Hornera",
         description: "El producto que buscas no está disponible.",
       }
     }
@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: ProductoPageProps): Promise<M
     // Verificar que el producto pertenece a la categoría correcta
     if (product.fk_id_categoria !== categoria?.id) {
       return {
-        title: "Producto no encontrado - MaxiPet",
+        title: "Producto no encontrado - La Hornera",
         description: "El producto que buscas no está disponible en esta categoría.",
       }
     }
@@ -68,7 +68,7 @@ export async function generateMetadata({ params }: ProductoPageProps): Promise<M
       imageUrl = `https://www.mundocuota.com.ar/${productImage}?v=${Date.now()}`
     }
 
-    const title = `${product.descripcion} - ${categoria?.descripcion || 'Producto'} | MaxiPet`
+    const title = `${product.descripcion} - ${categoria?.descripcion || 'Producto'} | La Hornera`
     const description = product.descripcion_detallada
       ? product.descripcion_detallada.substring(0, 160) + '...'
       : `Descubre ${product.descripcion} con los mejores planes de financiación. ${categoria?.descripcion || 'Producto'} de calidad.`
@@ -76,12 +76,12 @@ export async function generateMetadata({ params }: ProductoPageProps): Promise<M
     return {
       title,
       description,
-      keywords: `${product.descripcion}, ${categoria?.descripcion}, ${product.marca?.descripcion}, alimento para perros y gatos, mascotas, cuotas, financiación`,
+      keywords: `${product.descripcion}, ${categoria?.descripcion}, ${product.marca?.descripcion}, cerveza artesanal, craft beer, cuotas, financiación`,
       openGraph: {
         type: 'website',
         locale: 'es_AR',
         url: `https://www.mundocuota.com.ar/${resolvedParams.categoria}/${resolvedParams.id}`,
-        siteName: 'MaxiPet',
+        siteName: 'La Hornera',
         title,
         description,
         images: [
@@ -103,7 +103,7 @@ export async function generateMetadata({ params }: ProductoPageProps): Promise<M
   } catch (error) {
     console.error('Error generating metadata:', error)
     return {
-      title: "Producto - MaxiPet",
+      title: "Producto - La Hornera",
       description: "Descubre nuestros productos con los mejores planes de financiación.",
     }
   }

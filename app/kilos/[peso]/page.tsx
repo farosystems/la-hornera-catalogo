@@ -13,8 +13,8 @@ export async function generateMetadata({ params }: KilosCategoryPageProps): Prom
   const pesoFormateado = peso.replace('-', ' ')
 
   return {
-    title: `Productos de ${pesoFormateado} - MaxiPet`,
-    description: `Encuentra todos los productos de ${pesoFormateado} para tus mascotas en MaxiPet`,
+    title: `Cervezas de ${pesoFormateado} - La Hornera`,
+    description: `Encuentra todas las cervezas de ${pesoFormateado} en La Hornera Cervecería Artesanal`,
   }
 }
 

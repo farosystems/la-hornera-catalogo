@@ -9,35 +9,35 @@ import GlobalStyles from "@/components/GlobalStyles"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "MaxiPet - Alimento para Perros y Gatos",
+  title: "La Hornera - Cervecería Artesanal",
   description:
-    "Tu tienda de alimento para perros y gatos de confianza con los mejores planes de financiación. Alimento premium, snacks, accesorios y más.",
-  keywords: "alimento para perros, alimento para gatos, mascotas, cuotas, financiación, premium, snacks",
+    "Tu cervecería artesanal de confianza con los mejores planes de financiación. Cervezas premium, artesanales, IPA, lager y más.",
+  keywords: "cerveza artesanal, cerveza premium, IPA, lager, cuotas, financiación, craft beer",
   generator: 'v0.dev',
   icons: {
     icon: '/LOGO2.png',
   },
-  metadataBase: new URL('https://maxipet-catalogo-zkz9.vercel.app'),
+  metadataBase: new URL('https://lahornera-catalogo.vercel.app'),
   openGraph: {
     type: 'website',
     locale: 'es_AR',
     url: '/',
-    siteName: 'MaxiPet',
-    title: 'MaxiPet - Alimento para Perros y Gatos',
-    description: 'Tu tienda de alimento para perros y gatos de confianza con los mejores planes de financiación. Alimento premium, snacks, accesorios y más.',
+    siteName: 'La Hornera',
+    title: 'La Hornera - Cervecería Artesanal',
+    description: 'Tu cervecería artesanal de confianza con los mejores planes de financiación. Cervezas premium, artesanales, IPA, lager y más.',
     images: [
       {
         url: '/LOGO2.png?v=2',
         width: 400,
         height: 200,
-        alt: 'MaxiPet - Alimento para Perros y Gatos',
+        alt: 'La Hornera - Cervecería Artesanal',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'MaxiPet - Alimento para Perros y Gatos',
-    description: 'Tu tienda de alimento para perros y gatos de confianza con los mejores planes de financiación. Alimento premium, snacks, accesorios y más.',
+    title: 'La Hornera - Cervecería Artesanal',
+    description: 'Tu cervecería artesanal de confianza con los mejores planes de financiación. Cervezas premium, artesanales, IPA, lager y más.',
     images: ['/LOGO2.png?v=2'],
   },
 }

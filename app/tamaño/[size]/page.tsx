@@ -13,8 +13,8 @@ export async function generateMetadata({ params }: TamañoCategoryPageProps): Pr
   const tamañoFormateado = size.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())
 
   return {
-    title: `Productos Tamaño ${tamañoFormateado} - MaxiPet`,
-    description: `Encuentra todos los productos de tamaño ${tamañoFormateado} para tus mascotas en MaxiPet`,
+    title: `Cervezas Tamaño ${tamañoFormateado} - La Hornera`,
+    description: `Encuentra todas las cervezas de tamaño ${tamañoFormateado} en La Hornera Cervecería Artesanal`,
   }
 }
 

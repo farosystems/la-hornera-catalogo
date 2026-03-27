@@ -96,7 +96,7 @@ export default function FeaturedSection() {
             {tituloSeccion}
           </h2>
           <p className="text-xl text-blue-100 max-w-2xl mx-auto">
-            El alimento para perros y gatos más vendido y preferido por nuestros clientes
+            Las cervezas artesanales más vendidas y preferidas por nuestros clientes
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-yellow-500 mx-auto mt-4 rounded-full animate-pulse-glow"></div>
         </div>

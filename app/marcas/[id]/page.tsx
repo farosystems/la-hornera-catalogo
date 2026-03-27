@@ -12,8 +12,8 @@ export async function generateMetadata({ params }: MarcaCategoryPageProps): Prom
   const { id } = await params
 
   return {
-    title: `Productos por Marca - MaxiPet`,
-    description: `Encuentra todos los productos de esta marca para tus mascotas en MaxiPet`,
+    title: `Cervezas por Marca - La Hornera`,
+    description: `Encuentra todas las cervezas de esta marca en La Hornera Cervecería Artesanal`,
   }
 }
 
