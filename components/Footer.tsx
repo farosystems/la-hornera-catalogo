@@ -81,7 +81,7 @@ export default function Footer() {
               <li>
                 <Link href="/#destacados" className="text-blue-200 hover:text-white transition-colors duration-300 flex items-center">
                   <Zap className="mr-2 size-4" />
-                  Productos destacados
+                  Productos destacados...
                 </Link>
               </li>
               <li className="text-blue-200 flex items-center">
