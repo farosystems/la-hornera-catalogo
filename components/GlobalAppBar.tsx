@@ -102,7 +102,7 @@ export default function GlobalAppBar() {
             </div>
 
             {/* Buscador móvil/tablet en header principal */}
-            <div className="flex-1 max-w-5xl mx-2 mr-4 lg:hidden">
+            <div className="flex-1 max-w-5xl mx-1.5 min-w-0 mr-1 sm:mx-2 sm:mr-3 lg:hidden">
               <ProductSearch />
             </div>
 
@@ -112,8 +112,8 @@ export default function GlobalAppBar() {
             </div>
 
             {/* Controles de la derecha - solo en móvil */}
-            <div className="flex items-center space-x-2 sm:space-x-4 lg:hidden">
-              {/* Indicador de estado - oculto en móvil */}
+            <div className="flex items-center gap-1.5 sm:gap-2 shrink-0 lg:hidden">
+              {/* Indicador de estado */}
               <div
                 className="hidden sm:flex items-center space-x-2 rounded-full px-2 sm:px-3 py-1 border border-stone-600/60 bg-red-950/50 backdrop-blur-sm text-stone-100"
               >
@@ -122,14 +122,35 @@ export default function GlobalAppBar() {
                   En línea
                 </span>
               </div>
-              
+
+              {/* Mis pedidos: siempre visible en móvil */}
+              <button
+                type="button"
+                onClick={() => setIsShoppingListOpen(true)}
+                className="relative flex items-center justify-center gap-1 rounded-full py-2 pl-2.5 pr-2 sm:pl-3 sm:pr-2.5 text-white hover:opacity-90 transition-opacity min-h-[2.75rem] min-w-[2.75rem] sm:min-w-0"
+                style={{ backgroundColor: '#7f1d1d' }}
+                title="Mis Pedidos"
+                aria-label={`Mis Pedidos, ${itemCount} producto${itemCount !== 1 ? 's' : ''}`}
+              >
+                <ShoppingBag size={22} className="shrink-0" />
+                <span className="hidden min-[380px]:inline text-xs font-bold leading-none max-w-[5.5rem] truncate sm:text-sm">
+                  Pedidos{itemCount > 0 ? ` (${itemCount})` : ''}
+                </span>
+                {itemCount > 0 && (
+                  <span className="min-[380px]:hidden absolute -top-0.5 -right-0.5 flex h-5 min-w-5 items-center justify-center rounded-full bg-amber-400 px-1 text-[10px] font-bold text-zinc-900 ring-2 ring-zinc-900">
+                    {itemCount > 99 ? '99+' : itemCount}
+                  </span>
+                )}
+              </button>
+
               {/* Botón hamburguesa */}
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="hover:opacity-70 transition-colors duration-300 p-2 rounded-full text-white"
+                className="hover:opacity-70 transition-colors duration-300 p-2 rounded-full text-white shrink-0"
                 style={{
                   backgroundColor: "#7f1d1d"
                 }}
+                aria-expanded={isMobileMenuOpen}
                 aria-label="Abrir menú"
               >
                 {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -182,18 +203,6 @@ export default function GlobalAppBar() {
         {isMobileMenuOpen && (
           <div className="lg:hidden bg-zinc-950 border-t border-red-950/50">
             <div className="px-4 py-4 space-y-1">
-              {/* Mi Lista móvil */}
-              <button
-                onClick={() => {
-                  setIsShoppingListOpen(true)
-                  setIsMobileMenuOpen(false)
-                }}
-                className="flex items-center px-4 py-3 hover:bg-red-950/80 rounded-lg transition-colors font-medium text-stone-100 w-full"
-              >
-                <ShoppingBag className="mr-3" size={20} />
-                Mis Pedidos ({itemCount})
-              </button>
-
               {/* Filtros móvil */}
               <button
                 onClick={() => {
