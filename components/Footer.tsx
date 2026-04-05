@@ -60,8 +60,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-stone-300/90 text-sm leading-relaxed">
-              Especialistas en cervezas artesanales de calidad premium con los mejores planes de financiación.
-              Hacemos que tus celebraciones sean inolvidables con cuotas accesibles.
+              Especialistas en cervezas artesanales de calidad premium. Hacemos que tus celebraciones sean inolvidables.
             </p>
             <div className="space-y-3 pt-2 border-t border-red-900/30">
               <p className="text-stone-200 text-sm flex gap-2 items-start">
@@ -108,7 +107,7 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-stone-400 text-sm text-center md:text-left">
               © 2026 La Hornera. Todos los derechos reservados.
-              Especialistas en cervezas artesanales con financiación.
+              Especialistas en cervezas artesanales.
             </p>
             <div className="flex items-center space-x-4">
               <Link href="/" className="text-stone-300 hover:text-amber-100 transition-colors duration-300 text-sm">

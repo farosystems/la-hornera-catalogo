@@ -225,9 +225,8 @@ export default function ProductCard({ product, compact = false }: ProductCardPro
               className={`w-full mt-2 py-1.5 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 transition-all duration-300 ${
                 !hasStock
                   ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                  : 'text-white hover:opacity-90 shadow-md'
+                  : 'bg-amber-400 text-zinc-900 hover:bg-amber-300 shadow-md'
               }`}
-              style={hasStock ? { backgroundColor: 'var(--primary-color, #7f1d1d)' } : {}}
             >
               {!hasStock ? (
                 <>Sin Stock</>

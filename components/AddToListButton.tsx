@@ -36,9 +36,8 @@ export default function AddToListButton({ product, variant = 'card' }: AddToList
               ? 'bg-red-500 text-white cursor-not-allowed border-2 border-red-600 shadow-lg font-bold uppercase tracking-wide'
               : isAdding
               ? 'bg-emerald-100 text-emerald-700 cursor-not-allowed'
-              : 'text-white hover:scale-105 shadow-lg hover:shadow-xl'
+              : 'bg-amber-400 text-zinc-900 hover:bg-amber-300 hover:scale-105 shadow-lg hover:shadow-xl'
           }`}
-          style={!hasStock || isAdding ? {} : { backgroundColor: '#ec3036' }}
           title={!hasStock ? 'Sin stock' : 'Agregar a lista de compra'}
         >
           {!hasStock ? (
@@ -91,9 +90,8 @@ export default function AddToListButton({ product, variant = 'card' }: AddToList
             ? 'bg-red-500 text-white cursor-not-allowed border-2 border-red-600 shadow-lg font-bold uppercase tracking-wide text-lg py-3'
             : isAdding
             ? 'bg-emerald-100 text-emerald-700 cursor-not-allowed'
-            : 'text-white hover:scale-102 hover:shadow-lg'
+            : 'bg-amber-400 text-zinc-900 hover:bg-amber-300 hover:scale-102 hover:shadow-lg'
         }`}
-        style={!hasStock || isAdding ? {} : { backgroundColor: '#ec3036' }}
         title={!hasStock ? 'Sin stock' : 'Agregar a lista de compra'}
       >
         {!hasStock ? (

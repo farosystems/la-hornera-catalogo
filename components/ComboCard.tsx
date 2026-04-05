@@ -152,9 +152,8 @@ export default function ComboCard({ combo }: ComboCardProps) {
                 ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
                 : isInFavorites
                 ? 'bg-green-100 text-green-700 hover:bg-red-100 hover:text-red-700'
-                : 'text-white hover:opacity-90 shadow-md'
+                : 'bg-amber-400 text-zinc-900 hover:bg-amber-300 shadow-md'
             }`}
-            style={isValid && !isInFavorites ? { backgroundColor: 'var(--primary-color, #7f1d1d)' } : {}}
           >
             {!isValid ? (
               <>No vigente</>
