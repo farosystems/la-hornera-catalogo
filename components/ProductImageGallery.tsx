@@ -2,7 +2,7 @@
 
 import { useState, useRef } from "react"
 import Image from "next/image"
-import { ChevronLeft, ChevronRight, Star, X, Heart, Share2 } from "lucide-react"
+import { ChevronLeft, ChevronRight, X, Heart, Share2 } from "lucide-react"
 import { Marca, Product } from "@/lib/products"
 import { useShoppingList } from "@/hooks/use-shopping-list"
 
@@ -105,7 +105,7 @@ export default function ProductImageGallery({ images, productName, isFeatured = 
   if (validImages.length === 0) {
     return (
       <div className="relative group">
-        <div className="bg-white rounded-2xl shadow-xl p-8 overflow-hidden">
+        <div className="bg-zinc-900/90 border border-stone-700 rounded-2xl shadow-xl shadow-black/40 p-6 sm:p-8 overflow-hidden">
           <div className="relative aspect-square">
             <Image
               src="/placeholder.svg"
@@ -215,7 +215,7 @@ export default function ProductImageGallery({ images, productName, isFeatured = 
 
   return (
     <div className="relative group">
-      <div className="bg-white rounded-2xl shadow-xl p-8 overflow-hidden">
+      <div className="bg-zinc-900/90 border border-stone-700 rounded-2xl shadow-xl shadow-black/40 p-6 sm:p-8 overflow-hidden">
         <div 
           className="relative aspect-square cursor-pointer overflow-hidden"
           onTouchStart={handleTouchStart}
@@ -243,7 +243,7 @@ export default function ProductImageGallery({ images, productName, isFeatured = 
               className={`absolute top-2 right-2 p-2 rounded-full shadow-lg transition-all duration-300 hover:scale-110 z-20 ${
                 isInFavorites
                   ? 'text-white'
-                  : 'bg-white/90 text-gray-600 hover:bg-white'
+                  : 'bg-stone-900/95 text-stone-300 hover:bg-stone-800 border border-stone-600'
               }`}
               style={isInFavorites ? { backgroundColor: '#ec3036' } : {}}
               onMouseEnter={(e) => {
@@ -269,7 +269,7 @@ export default function ProductImageGallery({ images, productName, isFeatured = 
           {/* Botón de Compartir - Esquina inferior derecha */}
           <button
             onClick={handleShareClick}
-            className="absolute bottom-2 right-2 p-2 bg-white/90 text-gray-600 hover:bg-white hover:text-gray-800 rounded-full shadow-lg transition-all duration-300 hover:scale-110 z-20"
+            className="absolute bottom-2 right-2 p-2 bg-stone-900/95 text-amber-500/90 hover:bg-stone-800 hover:text-amber-400 rounded-full shadow-lg border border-stone-600 transition-all duration-300 hover:scale-110 z-20"
             title="Compartir producto"
           >
             <Share2 className="w-5 h-5" />
@@ -283,29 +283,29 @@ export default function ProductImageGallery({ images, productName, isFeatured = 
                   e.stopPropagation()
                   prevImage()
                 }}
-                className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg hover:bg-white transition-all duration-300 z-10 cursor-pointer"
+                className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-stone-900/95 backdrop-blur-sm rounded-full p-3 shadow-lg border border-stone-600 hover:bg-stone-800 transition-all duration-300 z-10 cursor-pointer"
                 aria-label="Imagen anterior"
                 type="button"
               >
-                <ChevronLeft size={20} className="text-gray-700" />
+                <ChevronLeft size={20} className="text-amber-100" />
               </button>
               <button
                 onClick={(e) => {
                   e.stopPropagation()
                   nextImage()
                 }}
-                className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg hover:bg-white transition-all duration-300 z-10 cursor-pointer"
+                className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-stone-900/95 backdrop-blur-sm rounded-full p-3 shadow-lg border border-stone-600 hover:bg-stone-800 transition-all duration-300 z-10 cursor-pointer"
                 aria-label="Imagen siguiente"
                 type="button"
               >
-                <ChevronRight size={20} className="text-gray-700" />
+                <ChevronRight size={20} className="text-amber-100" />
               </button>
             </>
           )}
 
           {/* Indicador de imagen actual */}
           {validImages.length > 1 && (
-            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/50 text-white px-3 py-1 rounded-full text-sm font-medium">
+            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-red-950/70 backdrop-blur-sm text-amber-100 px-3 py-1 rounded-full text-sm font-medium border border-stone-600/80">
               {currentImageIndex + 1} / {validImages.length}
             </div>
           )}
@@ -321,10 +321,10 @@ export default function ProductImageGallery({ images, productName, isFeatured = 
                   e.stopPropagation()
                   goToImage(index)
                 }}
-                className={`w-20 h-20 bg-white rounded-xl flex items-center justify-center shadow-md transition-all duration-200 cursor-pointer overflow-hidden ${
+                className={`w-20 h-20 bg-zinc-950 rounded-xl flex items-center justify-center shadow-md transition-all duration-200 cursor-pointer overflow-hidden ${
                   index === currentImageIndex 
-                    ? 'border-2 border-emerald-500 scale-105' 
-                    : 'border border-gray-300 hover:border-emerald-300 hover:scale-105'
+                    ? 'border-2 border-amber-600 scale-105 ring-1 ring-amber-700/50' 
+                    : 'border border-stone-600 hover:border-amber-700/70 hover:scale-105'
                 }`}
                 aria-label={`Ver imagen ${index + 1}`}
                 type="button"
@@ -346,16 +346,16 @@ export default function ProductImageGallery({ images, productName, isFeatured = 
       {/* Modal de Zoom */}
       {isZoomOpen && (
         <div 
-          className="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-zinc-950/92 backdrop-blur-sm z-50 flex items-center justify-center p-4"
           onClick={closeZoom}
         >
           <div className="relative max-w-full max-h-full">
             <button
               onClick={closeZoom}
-              className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg hover:bg-white transition-all duration-300 z-10"
+              className="absolute top-4 right-4 bg-stone-900/95 backdrop-blur-sm rounded-full p-2 shadow-lg border border-stone-600 hover:bg-stone-800 transition-all duration-300 z-10"
               aria-label="Cerrar zoom"
             >
-              <X size={24} className="text-gray-700" />
+              <X size={24} className="text-amber-100" />
             </button>
             
             <div className="relative w-[90vw] h-[90vh] max-w-4xl max-h-[90vh]">
@@ -376,24 +376,24 @@ export default function ProductImageGallery({ images, productName, isFeatured = 
                     e.stopPropagation()
                     prevImage()
                   }}
-                  className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg hover:bg-white transition-all duration-300 z-10"
+                  className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-stone-900/95 backdrop-blur-sm rounded-full p-3 shadow-lg border border-stone-600 hover:bg-stone-800 transition-all duration-300 z-10"
                   aria-label="Imagen anterior"
                 >
-                  <ChevronLeft size={24} className="text-gray-700" />
+                  <ChevronLeft size={24} className="text-amber-100" />
                 </button>
                 <button
                   onClick={(e) => {
                     e.stopPropagation()
                     nextImage()
                   }}
-                  className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg hover:bg-white transition-all duration-300 z-10"
+                  className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-stone-900/95 backdrop-blur-sm rounded-full p-3 shadow-lg border border-stone-600 hover:bg-stone-800 transition-all duration-300 z-10"
                   aria-label="Imagen siguiente"
                 >
-                  <ChevronRight size={24} className="text-gray-700" />
+                  <ChevronRight size={24} className="text-amber-100" />
                 </button>
                 
                 {/* Indicador en zoom */}
-                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/70 text-white px-4 py-2 rounded-full text-sm font-medium">
+                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-red-950/75 backdrop-blur-sm text-amber-100 px-4 py-2 rounded-full text-sm font-medium border border-stone-600/80">
                   {currentImageIndex + 1} / {validImages.length}
                 </div>
               </>

@@ -198,7 +198,7 @@ export default function CategoriesDropdown({ isOpen, onClose, isMobile: isMobile
             selectedLinea ? '-translate-x-full' : 'translate-x-0'
           }`}>
             {/* Header con gradiente violeta */}
-            <div className="bg-gradient-to-r from-emerald-600 to-emerald-700 text-white p-4 flex items-center justify-between">
+            <div className="bg-gradient-to-r from-red-950 to-red-900 text-white p-4 flex items-center justify-between">
               <h2 className="text-xl font-bold">Líneas</h2>
               <button onClick={onClose} className="text-white/80 hover:text-white">
                 <X size={24} />
@@ -207,7 +207,7 @@ export default function CategoriesDropdown({ isOpen, onClose, isMobile: isMobile
             
             {loading ? (
               <div className="flex-1 flex items-center justify-center">
-                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-violet-600"></div>
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-red-800"></div>
               </div>
             ) : (
               /* Lista scrolleable de líneas */
@@ -223,7 +223,7 @@ export default function CategoriesDropdown({ isOpen, onClose, isMobile: isMobile
                       <span className="text-gray-900 group-hover:text-emerald-700 font-medium text-lg">
                         {linea.descripcion}
                       </span>
-                      <ChevronRight className="text-gray-400 group-hover:text-emerald-600 size-6" />
+                      <ChevronRight className="text-gray-400 group-hover:text-amber-500 size-6" />
                     </button>
                   ))}
 
@@ -240,7 +240,7 @@ export default function CategoriesDropdown({ isOpen, onClose, isMobile: isMobile
                         <span className="text-gray-900 group-hover:text-emerald-700 font-medium text-lg">
                           {category.descripcion}
                         </span>
-                        <ChevronRight className="text-gray-400 group-hover:text-emerald-600 size-6" />
+                        <ChevronRight className="text-gray-400 group-hover:text-amber-500 size-6" />
                       </Link>
                     )
                   })}
@@ -254,7 +254,7 @@ export default function CategoriesDropdown({ isOpen, onClose, isMobile: isMobile
             selectedLinea ? 'translate-x-0' : 'translate-x-full'
           }`}>
             {/* Header con gradiente violeta */}
-            <div className="bg-gradient-to-r from-emerald-600 to-emerald-700 text-white p-4 flex items-center gap-3">
+            <div className="bg-gradient-to-r from-red-950 to-red-900 text-white p-4 flex items-center gap-3">
               <button
                 onClick={handleBackToLineas}
                 className="text-white/80 hover:text-white"
@@ -288,7 +288,7 @@ export default function CategoriesDropdown({ isOpen, onClose, isMobile: isMobile
                         <span className="text-gray-900 group-hover:text-emerald-700 font-medium text-lg">
                           {category.descripcion}
                         </span>
-                        <ChevronRight className="text-gray-400 group-hover:text-emerald-600 size-6" />
+                        <ChevronRight className="text-gray-400 group-hover:text-amber-500 size-6" />
                       </Link>
                     )
                   })}
@@ -315,7 +315,7 @@ export default function CategoriesDropdown({ isOpen, onClose, isMobile: isMobile
 
       {loading ? (
         <div className="flex items-center justify-center py-8">
-          <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-violet-600"></div>
+          <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-red-800"></div>
         </div>
       ) : (
         <div className="flex-1 overflow-y-auto overflow-x-visible px-4 pb-4">
@@ -334,7 +334,7 @@ export default function CategoriesDropdown({ isOpen, onClose, isMobile: isMobile
                   onClick={() => handleLineaClick(linea)}
                   className="flex items-center justify-between px-3 py-2 hover:bg-emerald-50 rounded-lg transition-colors group border border-transparent hover:border-emerald-200 cursor-pointer"
                 >
-                  <span className="text-gray-900 group-hover:text-emerald-600 font-semibold text-sm">
+                  <span className="text-gray-900 group-hover:text-amber-500 font-semibold text-sm">
                     {linea.descripcion}
                   </span>
                   <div className="flex items-center gap-2">
@@ -343,7 +343,7 @@ export default function CategoriesDropdown({ isOpen, onClose, isMobile: isMobile
                         {linea.categorias.length}
                       </span>
                     )}
-                    <ChevronRight className="text-gray-400 group-hover:text-emerald-600 size-4 flex-shrink-0" />
+                    <ChevronRight className="text-gray-400 group-hover:text-amber-500 size-4 flex-shrink-0" />
                   </div>
                 </div>
 
@@ -365,10 +365,10 @@ export default function CategoriesDropdown({ isOpen, onClose, isMobile: isMobile
                   onClick={onClose}
                   className="flex items-center justify-between px-3 py-2 hover:bg-emerald-50 rounded-lg transition-colors group border border-transparent hover:border-emerald-200"
                 >
-                  <span className="text-gray-700 group-hover:text-emerald-600 font-medium text-sm">
+                  <span className="text-gray-700 group-hover:text-amber-500 font-medium text-sm">
                     {category.descripcion}
                   </span>
-                  <ChevronRight className="text-gray-400 group-hover:text-emerald-600 size-4 flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <ChevronRight className="text-gray-400 group-hover:text-amber-500 size-4 flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>
               )
             })}
@@ -415,10 +415,10 @@ export default function CategoriesDropdown({ isOpen, onClose, isMobile: isMobile
                         onClick={onClose}
                         className="flex items-center justify-between px-2 py-1.5 hover:bg-emerald-50 rounded-lg transition-colors group border border-transparent hover:border-emerald-200"
                       >
-                        <span className="text-gray-700 group-hover:text-emerald-600 font-medium text-xs">
+                        <span className="text-gray-700 group-hover:text-amber-500 font-medium text-xs">
                           {category.descripcion}
                         </span>
-                        <ChevronRight className="text-gray-400 group-hover:text-emerald-600 size-3 flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <ChevronRight className="text-gray-400 group-hover:text-amber-500 size-3 flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" />
                       </Link>
                     )
                   })}

@@ -35,7 +35,7 @@ export default function KilosCategoryClient({ params }: KilosCategoryClientProps
   }
 
   return (
-    <div className="bg-gradient-to-br from-gray-50 to-blue-50 min-h-screen">
+    <div className="bg-gradient-to-br from-zinc-950 via-stone-950 to-zinc-950 min-h-screen">
       <GlobalAppBar />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8" style={{ marginTop: '25px' }}>
@@ -43,7 +43,7 @@ export default function KilosCategoryClient({ params }: KilosCategoryClientProps
         <div className="mb-8">
           <button
             onClick={handleBack}
-            className="inline-flex items-center text-blue-600 hover:text-blue-700 transition-colors mb-4"
+            className="inline-flex items-center text-amber-600 hover:text-red-700 transition-colors mb-4"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Volver al inicio
@@ -59,7 +59,7 @@ export default function KilosCategoryClient({ params }: KilosCategoryClientProps
 
         {productsLoading ? (
           <div className="flex items-center justify-center py-20">
-            <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-600"></div>
+            <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-red-800"></div>
           </div>
         ) : filteredProducts.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-20">
@@ -72,7 +72,7 @@ export default function KilosCategoryClient({ params }: KilosCategoryClientProps
             </p>
             <button
               onClick={handleBack}
-              className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+              className="px-6 py-3 bg-red-900 text-amber-50 rounded-lg hover:bg-red-800 transition-colors"
             >
               Volver al inicio
             </button>

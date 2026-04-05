@@ -56,7 +56,7 @@ export default function Navbar() {
   // Mostrar estado de carga
   if (loading) {
     return (
-      <nav className="fixed w-full z-50 bg-gray-800 h-16">
+      <nav className="fixed w-full z-50 bg-zinc-950 h-16 border-b border-stone-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
@@ -140,7 +140,7 @@ export default function Navbar() {
         >
           <div 
             className="px-2 pt-2 pb-3 space-y-1 sm:px-3 backdrop-blur-md rounded-b-lg"
-            style={{ backgroundColor: configuracion?.appbar_background_color || "#1e40af" }}
+            style={{ backgroundColor: configuracion?.appbar_background_color || "#1a0f0d" }}
           >
             {["inicio", "productos", "destacados"].map((section, index) => (
               <button

@@ -105,9 +105,9 @@ export default function CategoriasPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-emerald-50 to-blue-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-zinc-950 via-stone-950 to-zinc-950 flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-violet-600 mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-red-800 mx-auto mb-4"></div>
           <p className="text-gray-600 text-lg">Cargando categorías...</p>
         </div>
       </div>
@@ -115,29 +115,29 @@ export default function CategoriasPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 to-blue-50">
+    <div className="min-h-screen bg-gradient-to-br from-zinc-950 via-stone-950 to-zinc-950">
       <GlobalAppBar />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Header */}
         <div className="text-center mb-12">
           <div className="flex items-center justify-center mb-6">
-            <Home className="text-emerald-600 mr-3" size={48} />
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900">
+            <Home className="text-amber-500 mr-3" size={48} />
+            <h1 className="text-4xl md:text-5xl font-bold text-stone-100">
               Mapa del Sitio
             </h1>
           </div>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-stone-400 max-w-2xl mx-auto">
             Explora todas nuestras categorías de productos y encuentra exactamente lo que necesitas
           </p>
         </div>
 
         {/* Breadcrumb */}
-        <div className="flex items-center mb-8 text-sm text-gray-500">
-          <Link href="/" className="hover:text-emerald-600 transition-colors">
+        <div className="flex items-center mb-8 text-sm text-stone-500">
+          <Link href="/" className="hover:text-amber-500 transition-colors">
             Inicio
           </Link>
           <span className="mx-2">•</span>
-          <span className="text-gray-900 font-medium">Categorías</span>
+          <span className="text-stone-200 font-medium">Categorías</span>
         </div>
 
         {/* Categories Grid */}
@@ -155,22 +155,22 @@ export default function CategoriasPage() {
                 href={`/${slug}`}
                 className="group"
               >
-                <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-6 border border-gray-100 group-hover:border-emerald-200 transform group-hover:scale-105">
+                <div className="bg-zinc-900/90 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-6 border border-stone-700 group-hover:border-red-900/60 transform group-hover:scale-105">
                   <div className="flex flex-col items-center text-center">
-                    <div className="bg-gradient-to-br from-emerald-500 to-blue-500 rounded-full p-4 mb-4 group-hover:from-emerald-600 group-hover:to-blue-600 transition-colors duration-300">
+                    <div className="bg-gradient-to-br from-red-900 to-amber-900 rounded-full p-4 mb-4 group-hover:from-red-800 group-hover:to-amber-800 transition-colors duration-300">
                       <IconComponent className="text-white" size={32} />
                     </div>
                     
-                    <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-emerald-700 transition-colors duration-300">
+                    <h3 className="text-lg font-bold text-stone-100 mb-2 group-hover:text-amber-400 transition-colors duration-300">
                       {category.descripcion}
                     </h3>
                     
-                    <p className="text-gray-500 text-sm group-hover:text-gray-600 transition-colors duration-300">
+                    <p className="text-stone-500 text-sm group-hover:text-stone-400 transition-colors duration-300">
                       Ver categorias
                     </p>
                     
                     <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <div className="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-xs font-medium">
+                      <div className="bg-red-950/60 text-amber-300 px-3 py-1 rounded-full text-xs font-medium">
                         Explorar →
                       </div>
                     </div>
@@ -185,7 +185,7 @@ export default function CategoriasPage() {
         <div className="text-center mt-12">
           <Link
             href="/"
-            className="inline-flex items-center bg-gradient-to-r from-emerald-600 to-blue-600 text-white font-bold py-3 px-8 rounded-full hover:from-emerald-700 hover:to-blue-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+            className="inline-flex items-center bg-gradient-to-r from-red-900 to-amber-900 text-amber-50 font-bold py-3 px-8 rounded-full hover:from-red-800 hover:to-amber-800 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
           >
             <Home className="mr-2" size={20} />
             Volver al Inicio

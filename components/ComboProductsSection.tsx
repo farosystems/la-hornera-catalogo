@@ -159,7 +159,7 @@ function ProductCard({ producto, cantidad, onFavoriteClick }: ProductCardProps) 
 
           {/* Precio */}
           <div className="mb-2">
-            <p className="text-lg font-bold text-emerald-600">
+            <p className="text-lg font-bold text-amber-500">
               ${producto.precio.toLocaleString()}
             </p>
             {cantidad > 1 && (

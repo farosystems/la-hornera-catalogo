@@ -48,8 +48,8 @@ export default function FinancingPlans({ productoId, precio, showDebug = false, 
 
   if (loading) {
     return (
-      <div className="mt-3 p-2 bg-gray-50 rounded">
-        <div className="animate-pulse h-4 bg-gray-200 rounded"></div>
+      <div className="mt-3 p-2 bg-zinc-900/80 rounded border border-stone-800">
+        <div className="animate-pulse h-4 bg-stone-700 rounded"></div>
       </div>
     )
   }
@@ -90,7 +90,7 @@ export default function FinancingPlans({ productoId, precio, showDebug = false, 
     index === self.findIndex((p) => p.id === plan.id)
   )
 
-  const colores = ['bg-blue-100 text-blue-800', 'bg-green-100 text-green-800', 'bg-emerald-100 text-emerald-800', 'bg-orange-100 text-orange-800']
+  const colores = ['bg-red-950/50 text-amber-200', 'bg-stone-800 text-stone-200', 'bg-amber-950/40 text-amber-100', 'bg-orange-950/40 text-orange-200']
 
   const handlePlanClick = (plan: PlanFinanciacion, calculo: { cuota_mensual: number }) => {
     // Si el producto no está en la lista, agregarlo primero
@@ -113,12 +113,12 @@ export default function FinancingPlans({ productoId, precio, showDebug = false, 
   return (
     <div className="mt-3 space-y-2">
       {showDebug && (
-        <div className="text-xs text-gray-500 mb-2 p-2 bg-gray-100 rounded">
+        <div className="text-xs text-stone-500 mb-2 p-2 bg-zinc-900 rounded border border-stone-800">
           <strong>Tipo de planes:</strong> {getTipoPlanesText(tipoPlanes)} | <strong>Total:</strong> {planes.length} planes
         </div>
       )}
 
-      <p className="text-xs text-blue-600 font-semibold mb-1">Selecciona el plan de pago:</p>
+      <p className="text-xs text-amber-500/90 font-semibold mb-1">Selecciona el plan de pago:</p>
 
       {planesFinales.map((plan, index) => {
         const calculo = calcularCuota(precio, plan)
@@ -140,7 +140,7 @@ export default function FinancingPlans({ productoId, precio, showDebug = false, 
         const isSelected = planActual?.planId === plan.id
 
         const baseClass = esContado ? 'bg-red-100 text-red-800' : colores[index % colores.length]
-        const selectedClass = 'ring-2 ring-blue-500 bg-blue-200 text-blue-900'
+        const selectedClass = 'ring-2 ring-amber-600 bg-red-950/70 text-amber-100'
 
         return (
           <button
@@ -177,7 +177,7 @@ export default function FinancingPlans({ productoId, precio, showDebug = false, 
               )}
             </div>
             {isSelected && (
-              <div className="text-xs mt-1 font-semibold text-blue-700">✓ Seleccionado</div>
+              <div className="text-xs mt-1 font-semibold text-amber-400">✓ Seleccionado</div>
             )}
           </button>
         )

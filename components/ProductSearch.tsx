@@ -155,9 +155,9 @@ function ProductSearchContent({ className = '' }: ProductSearchProps) {
               }
             }}
             placeholder="Buscar productos y combos..."
-            className="w-full pl-12 pr-12 py-3 bg-white/90 backdrop-blur-sm border border-emerald-200 rounded-full text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-300"
+            className="w-full pl-12 pr-12 py-3 bg-zinc-900/95 backdrop-blur-sm border border-stone-600 rounded-full text-stone-100 placeholder-stone-500 focus:outline-none focus:ring-2 focus:ring-red-800 focus:border-transparent transition-all duration-300"
           />
-          <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 size-5" />
+          <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-stone-400 size-5 pointer-events-none" />
           {searchTerm && (
             <button
               type="button"
@@ -166,7 +166,7 @@ function ProductSearchContent({ className = '' }: ProductSearchProps) {
                 setIsSearchOpen(false)
                 inputRef.current?.focus()
               }}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 text-stone-400 hover:text-stone-200 transition-colors"
             >
               <X className="size-5" />
             </button>
@@ -176,18 +176,18 @@ function ProductSearchContent({ className = '' }: ProductSearchProps) {
 
       {/* Resultados de búsqueda */}
       {isSearchOpen && (
-        <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-xl shadow-2xl border border-gray-200 max-h-[400px] sm:max-h-[500px] lg:max-h-[600px] overflow-y-auto z-50">
+        <div className="absolute top-full left-0 right-0 mt-2 bg-zinc-900 rounded-xl shadow-2xl border border-stone-600 max-h-[400px] sm:max-h-[500px] lg:max-h-[600px] overflow-y-auto z-50">
           {/* Combos encontrados */}
           {filteredCombos.length > 0 && (
-            <div className="p-4 border-b border-gray-100">
-              <h3 className="text-sm font-semibold text-orange-700 mb-3">Combos ({filteredCombos.length})</h3>
+            <div className="p-4 border-b border-stone-700">
+              <h3 className="text-sm font-semibold text-amber-600 mb-3">Combos ({filteredCombos.length})</h3>
               <div className="space-y-3">
                 {filteredCombos.map((combo) => (
                   <Link
                     key={combo.id}
                     href={`/combos/${combo.id}`}
                     onClick={() => setIsSearchOpen(false)}
-                    className="flex items-center p-3 hover:bg-gray-50 rounded-lg transition-colors group"
+                    className="flex items-center p-3 hover:bg-stone-800 rounded-lg transition-colors group"
                   >
                     {/* Imagen del combo */}
                     <div className="flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 mr-3 sm:mr-4">
@@ -210,7 +210,7 @@ function ProductSearchContent({ className = '' }: ProductSearchProps) {
                           </span>
                         )}
                       </div>
-                      <h4 className="text-xs sm:text-sm font-medium text-gray-900 group-hover:text-orange-600 transition-colors line-clamp-2">
+                      <h4 className="text-xs sm:text-sm font-medium text-stone-200 group-hover:text-amber-500 transition-colors line-clamp-2">
                         {highlightText(combo.nombre || '', searchTerm)}
                       </h4>
                     </div>
@@ -228,7 +228,7 @@ function ProductSearchContent({ className = '' }: ProductSearchProps) {
           {/* Productos encontrados */}
           {filteredProducts.length > 0 && (
             <div className="p-4">
-              <h3 className="text-sm font-semibold text-gray-700 mb-3">Productos ({filteredProducts.length})</h3>
+              <h3 className="text-sm font-semibold text-stone-300 mb-3">Productos ({filteredProducts.length})</h3>
               <div className="space-y-3">
                 {filteredProducts.map((product) => (
                 <Link
@@ -240,7 +240,7 @@ function ProductSearchContent({ className = '' }: ProductSearchProps) {
                     `/varios/${product.id}`
                   }
                   onClick={() => setIsSearchOpen(false)}
-                  className="flex items-center p-3 hover:bg-gray-50 rounded-lg transition-colors group"
+                  className="flex items-center p-3 hover:bg-stone-800 rounded-lg transition-colors group"
                 >
                   {/* Imagen del producto */}
                   <div className="flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 mr-3 sm:mr-4">
@@ -253,7 +253,7 @@ function ProductSearchContent({ className = '' }: ProductSearchProps) {
 
                   {/* Información del producto */}
                   <div className="flex-1 min-w-0">
-                    <h4 className="text-xs sm:text-sm font-medium text-gray-900 group-hover:text-emerald-600 transition-colors line-clamp-2">
+                    <h4 className="text-xs sm:text-sm font-medium text-stone-200 group-hover:text-amber-500 transition-colors line-clamp-2">
                       {highlightText(product.descripcion || '', searchTerm)}
                     </h4>
                     <div className="flex items-center mt-1 space-x-1 sm:space-x-2">
@@ -279,11 +279,11 @@ function ProductSearchContent({ className = '' }: ProductSearchProps) {
 
           {/* Ver todos los resultados */}
           {(filteredProducts.length > 0 || filteredCombos.length > 0) && (
-            <div className="p-4 pt-3 border-t border-gray-100">
+            <div className="p-4 pt-3 border-t border-stone-700">
               <Link
                 href={`/buscar?q=${encodeURIComponent(searchTerm)}`}
                 onClick={() => setIsSearchOpen(false)}
-                className="flex items-center justify-center w-full py-2 px-4 bg-emerald-600 text-white text-sm font-medium rounded-lg hover:bg-emerald-700 transition-colors"
+                className="flex items-center justify-center w-full py-2 px-4 bg-red-900 text-amber-50 text-sm font-medium rounded-lg hover:bg-red-800 transition-colors"
               >
                 <Package className="size-4 mr-2" />
                 Ver todos los resultados
@@ -329,7 +329,7 @@ function ProductFinancingPrices({ product }: { product: Product }) {
   // Si no hay planes, mostrar solo el precio
   if (planes.length === 0) {
     return (
-      <div className="text-xs font-bold text-blue-600">
+      <div className="text-xs font-bold text-amber-500">
         ${formatearPrecio(precioMostrar)}
       </div>
     )
@@ -341,7 +341,7 @@ function ProductFinancingPrices({ product }: { product: Product }) {
 
   if (!calculo) {
     return (
-      <div className="text-xs font-bold text-blue-600">
+      <div className="text-xs font-bold text-amber-500">
         ${formatearPrecio(precioMostrar)}
       </div>
     )
@@ -352,7 +352,7 @@ function ProductFinancingPrices({ product }: { product: Product }) {
 
   return (
     <div>
-      <div className="text-xs font-bold text-blue-600">
+      <div className="text-xs font-bold text-amber-500">
         ${formatearPrecio(precioMostrar)}
       </div>
       <div className="text-xs font-bold text-green-600">
@@ -437,9 +437,9 @@ export default function ProductSearch({ className = '' }: ProductSearchProps) {
             type="text"
             placeholder="Buscar productos..."
             disabled
-            className="w-full pl-12 pr-12 py-3 bg-white/90 backdrop-blur-sm border border-emerald-200 rounded-full text-gray-900 placeholder-gray-500 opacity-50 cursor-not-allowed"
+            className="w-full pl-12 pr-12 py-3 bg-zinc-900/80 backdrop-blur-sm border border-stone-700 rounded-full text-stone-400 placeholder-stone-600 opacity-50 cursor-not-allowed"
           />
-          <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 size-5" />
+          <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-stone-400 size-5 pointer-events-none" />
         </div>
       </div>
     }>

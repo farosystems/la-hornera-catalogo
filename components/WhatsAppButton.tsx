@@ -99,7 +99,7 @@ export default function WhatsAppButton({ product }: WhatsAppButtonProps) {
     return (
       <button
         disabled
-        className="relative w-full bg-gray-400 text-gray-600 font-semibold py-2 px-4 rounded-xl flex items-center justify-center transition-all duration-300 text-base shadow-md cursor-not-allowed"
+        className="relative w-full bg-zinc-800 text-stone-500 font-semibold py-2 px-4 rounded-xl flex items-center justify-center transition-all duration-300 text-base shadow-md cursor-not-allowed border border-stone-700"
         title="Sin stock"
       >
         <Image 
@@ -119,7 +119,7 @@ export default function WhatsAppButton({ product }: WhatsAppButtonProps) {
     return (
       <button
         disabled
-        className="relative w-full bg-gray-400 text-white font-semibold py-2 px-4 rounded-xl flex items-center justify-center transition-all duration-300 text-base shadow-md cursor-not-allowed"
+        className="relative w-full bg-zinc-800 text-stone-400 font-semibold py-2 px-4 rounded-xl flex items-center justify-center transition-all duration-300 text-base shadow-md cursor-not-allowed border border-stone-700"
       >
         <Image 
           src="/WhatsApp.svg.webp" 
@@ -142,13 +142,13 @@ export default function WhatsAppButton({ product }: WhatsAppButtonProps) {
     <>
       <button
         onClick={handleClick}
-        className="relative w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-400 hover:to-green-500 text-white font-semibold py-2 px-4 rounded-xl flex items-center justify-center transition-all duration-300 text-base shadow-md hover:shadow-lg transform hover:scale-102 overflow-hidden group"
+        className="relative w-full bg-gradient-to-r from-emerald-900 to-green-950 hover:from-emerald-800 hover:to-green-900 text-emerald-50 font-semibold py-2 px-4 rounded-xl flex items-center justify-center transition-all duration-300 text-base shadow-lg shadow-black/30 hover:shadow-xl border border-emerald-800/50 transform hover:scale-[1.02] overflow-hidden group"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
         {/* Efecto de onda */}
         <div
-          className={`absolute inset-0 bg-white/20 transform transition-transform duration-500 ${
+          className={`absolute inset-0 bg-emerald-400/15 transform transition-transform duration-500 ${
             isHovered ? "translate-x-0" : "-translate-x-full"
           }`}
         ></div>
@@ -165,7 +165,7 @@ export default function WhatsAppButton({ product }: WhatsAppButtonProps) {
 
         {/* Partículas animadas */}
         <div
-          className={`absolute top-2 right-4 w-2 h-2 bg-white rounded-full transition-all duration-300 ${
+          className={`absolute top-2 right-4 w-2 h-2 bg-emerald-300/90 rounded-full transition-all duration-300 ${
             isHovered ? "animate-ping" : "opacity-0"
           }`}
         ></div>

@@ -11,7 +11,7 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "La Hornera - Cervecería Artesanal",
   description:
-    "Tu cervecería artesanal de confianza con los mejores planes de financiación. Cervezas premium, artesanales, IPA, lager y más.",
+    "ESPACIO CERVECERO con los mejores planes de financiación. Cervezas premium, artesanales, IPA, lager y más.",
   keywords: "cerveza artesanal, cerveza premium, IPA, lager, cuotas, financiación, craft beer",
   generator: 'v0.dev',
   icons: {
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     url: '/',
     siteName: 'La Hornera',
     title: 'La Hornera - Cervecería Artesanal',
-    description: 'Tu cervecería artesanal de confianza con los mejores planes de financiación. Cervezas premium, artesanales, IPA, lager y más.',
+    description: 'ESPACIO CERVECERO con los mejores planes de financiación. Cervezas premium, artesanales, IPA, lager y más.',
     images: [
       {
         url: '/LOGO2.png?v=2',
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'La Hornera - Cervecería Artesanal',
-    description: 'Tu cervecería artesanal de confianza con los mejores planes de financiación. Cervezas premium, artesanales, IPA, lager y más.',
+    description: 'ESPACIO CERVECERO con los mejores planes de financiación. Cervezas premium, artesanales, IPA, lager y más.',
     images: ['/LOGO2.png?v=2'],
   },
 }
@@ -48,8 +48,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="es">
-      <body className={inter.className}>
+    <html lang="es" className="dark">
+      <body className={`${inter.className} min-h-screen bg-background`}>
         <ConfiguracionWebProvider>
           <GlobalStyles />
           <ShoppingListProvider>

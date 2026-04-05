@@ -161,13 +161,13 @@ export default function ProductsSection() {
 
   if (loading) {
     return (
-      <section id="productos" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+      <section id="productos" className="py-20 bg-gradient-to-br from-zinc-950 via-stone-950 to-zinc-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4 bg-gradient-to-r from-emerald-600 to-emerald-600 bg-clip-text text-transparent">
+            <h2 className="text-4xl font-bold text-stone-100 mb-4 bg-gradient-to-r from-amber-500 to-red-700 bg-clip-text text-transparent">
               Nuestros Productos
             </h2>
-            <p className="text-xl text-gray-600">Cargando productos...</p>
+            <p className="text-xl text-stone-400">Cargando productos...</p>
           </div>
         </div>
       </section>
@@ -176,13 +176,13 @@ export default function ProductsSection() {
 
   if (error) {
     return (
-      <section id="productos" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+      <section id="productos" className="py-20 bg-gradient-to-br from-zinc-950 via-stone-950 to-zinc-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4 bg-gradient-to-r from-emerald-600 to-emerald-600 bg-clip-text text-transparent">
+            <h2 className="text-4xl font-bold text-stone-100 mb-4 bg-gradient-to-r from-amber-500 to-red-700 bg-clip-text text-transparent">
               Nuestros Productos
             </h2>
-            <p className="text-xl text-red-600">Error al cargar los productos: {error}</p>
+            <p className="text-xl text-red-400">Error al cargar los productos: {error}</p>
           </div>
         </div>
       </section>
@@ -190,15 +190,15 @@ export default function ProductsSection() {
   }
 
   return (
-    <section id="productos" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+    <section id="productos" className="py-20 bg-gradient-to-br from-zinc-950 via-stone-950 to-zinc-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
           className={`text-center mb-16 transition-all duration-1000 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}
         >
-          <h2 className="text-4xl font-bold text-gray-900 mb-4 bg-gradient-to-r from-emerald-600 to-emerald-600 bg-clip-text text-transparent">
+          <h2 className="text-4xl font-bold text-stone-100 mb-4 bg-gradient-to-r from-amber-500 to-red-700 bg-clip-text text-transparent">
             Nuestros Productos
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-stone-400 max-w-2xl mx-auto">
             Descubre nuestra amplia gama de cervezas artesanales con los mejores planes de financiación
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-yellow-500 mx-auto mt-4 rounded-full"></div>
@@ -222,16 +222,16 @@ export default function ProductsSection() {
         {/* Contador de resultados */}
         <div className={`mb-8 transition-all duration-500 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}>
           <div className="flex items-center justify-between">
-            <p className="text-gray-600">
-              Mostrando <span className="font-semibold text-blue-600">{paginatedProducts.length}</span> de{" "}
-              <span className="font-semibold text-blue-600">{filteredProducts.length}</span> productos
+            <p className="text-stone-400">
+              Mostrando <span className="font-semibold text-amber-500">{paginatedProducts.length}</span> de{" "}
+              <span className="font-semibold text-amber-500">{filteredProducts.length}</span> productos
             </p>
             {filteredProducts.length === 0 && (
               <div className="text-center py-8 animate-scale-in">
-                <p className="text-gray-500 text-lg">No se encontraron productos que coincidan con los filtros.</p>
+                <p className="text-stone-500 text-lg">No se encontraron productos que coincidan con los filtros.</p>
                 <button
                   onClick={handleClearFilters}
-                  className="mt-4 px-6 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors duration-300"
+                  className="mt-4 px-6 py-2 bg-red-900 text-amber-50 rounded-xl hover:bg-red-800 transition-colors duration-300"
                 >
                   Limpiar filtros
                 </button>

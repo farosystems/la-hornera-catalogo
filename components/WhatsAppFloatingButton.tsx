@@ -101,10 +101,10 @@ export default function WhatsAppFloatingButton({ product }: WhatsAppFloatingButt
         <button
           onClick={handleClick}
           disabled={product && !hasStock}
-          className={`rounded-full w-16 h-16 flex items-center justify-center shadow-lg transition-all duration-300 transform group ${
+          className={`relative overflow-hidden rounded-full w-16 h-16 flex items-center justify-center shadow-lg transition-all duration-300 transform group border-2 ${
             product && !hasStock
-              ? 'bg-gray-400 text-gray-600 cursor-not-allowed opacity-50'
-              : 'bg-green-500 hover:bg-green-600 text-white hover:shadow-xl hover:scale-110 active:scale-95'
+              ? 'bg-zinc-800 border-stone-600 text-stone-500 cursor-not-allowed opacity-60'
+              : 'bg-gradient-to-br from-emerald-900 to-green-950 border-emerald-700/80 text-emerald-50 hover:from-emerald-800 hover:to-green-900 hover:shadow-emerald-950/40 hover:shadow-xl hover:scale-110 active:scale-95'
           }`}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
@@ -121,11 +121,13 @@ export default function WhatsAppFloatingButton({ product }: WhatsAppFloatingButt
             alt="WhatsApp" 
             width={32} 
             height={32} 
-            className={`transition-all duration-300 ${isHovered ? "animate-pulse" : ""}`} 
+            className={`relative z-10 transition-all duration-300 ${isHovered ? "animate-pulse" : ""}`} 
           />
           
           {/* Efecto de ondas */}
-          <div className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-25"></div>
+          {!(product && !hasStock) && (
+            <div className="absolute inset-0 rounded-full bg-emerald-600 animate-ping opacity-20 pointer-events-none" />
+          )}
         </button>
       </div>
 

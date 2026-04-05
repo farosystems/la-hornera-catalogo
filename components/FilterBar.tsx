@@ -65,17 +65,17 @@ export default function FilterBar({
     : 'Todas las marcas'
 
   return (
-    <div className="bg-white rounded-2xl shadow-lg p-6 mb-8 relative">
+    <div className="bg-zinc-900/90 border border-stone-700 rounded-2xl shadow-lg shadow-black/20 p-6 mb-8 relative">
       {/* Barra de búsqueda principal */}
       <div className="flex flex-col lg:flex-row gap-4 items-center mb-6">
         <div className="relative flex-1 w-full">
-          <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+          <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-stone-500" size={20} />
           <input
             type="text"
             placeholder="Buscar productos..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-12 pr-4 py-4 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-lg"
+            className="w-full pl-12 pr-4 py-4 border border-stone-600 bg-zinc-950/80 text-stone-100 placeholder:text-stone-500 rounded-xl focus:ring-2 focus:ring-red-800 focus:border-transparent transition-all duration-300 text-lg"
           />
         </div>
 
@@ -83,8 +83,8 @@ export default function FilterBar({
           onClick={() => setShowFilters(!showFilters)}
           className={`flex items-center gap-3 px-6 py-4 rounded-xl font-medium transition-all duration-300 ${
             showFilters 
-              ? "bg-blue-600 text-white shadow-lg" 
-              : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+              ? "bg-red-900 text-amber-50 shadow-lg" 
+              : "bg-stone-800 text-stone-200 hover:bg-stone-700"
           }`}
         >
           <SlidersHorizontal size={20} />
@@ -109,10 +109,10 @@ export default function FilterBar({
           showFilters ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pt-4 border-t border-gray-100">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pt-4 border-t border-stone-700">
           {/* Filtro por categoría */}
           <div className="relative" ref={categoryRef}>
-            <label className="block text-sm font-semibold text-gray-700 mb-3">
+            <label className="block text-sm font-semibold text-stone-300 mb-3">
               Categoría
             </label>
             <button
@@ -120,28 +120,28 @@ export default function FilterBar({
                 setShowCategoryDropdown(!showCategoryDropdown)
                 setShowBrandDropdown(false)
               }}
-              className="w-full px-4 py-4 bg-gray-50 border-2 border-gray-200 rounded-xl text-left flex items-center justify-between hover:bg-gray-100 hover:border-gray-300 transition-all duration-300"
+              className="w-full px-4 py-4 bg-zinc-950/80 border-2 border-stone-600 rounded-xl text-left flex items-center justify-between hover:bg-stone-800 hover:border-stone-500 transition-all duration-300"
             >
-              <span className={selectedCategory === null ? "text-gray-500" : "text-gray-900 font-medium"}>
+              <span className={selectedCategory === null ? "text-stone-500" : "text-stone-100 font-medium"}>
                 {selectedCategoryName}
               </span>
               <ChevronDown
-                className={`transition-transform duration-300 text-gray-400 ${showCategoryDropdown ? "rotate-180" : ""}`}
+                className={`transition-transform duration-300 text-stone-500 ${showCategoryDropdown ? "rotate-180" : ""}`}
                 size={16}
               />
             </button>
 
             {/* Dropdown de categorías */}
             {showCategoryDropdown && (
-              <div className="absolute top-full left-0 right-0 mt-2 bg-white border-2 border-gray-200 rounded-xl shadow-2xl z-50 filter-dropdown">
+              <div className="absolute top-full left-0 right-0 mt-2 bg-zinc-900 border-2 border-stone-600 rounded-xl shadow-2xl z-50 filter-dropdown">
                 <div className="max-h-64 overflow-y-auto">
                   <button
                     onClick={() => {
                       setSelectedCategory(null)
                       setShowCategoryDropdown(false)
                     }}
-                    className={`w-full px-4 py-3 text-left hover:bg-blue-50 transition-colors duration-200 border-b border-gray-100 ${
-                      selectedCategory === null ? "bg-blue-100 text-blue-600 font-medium" : "text-gray-700"
+                    className={`w-full px-4 py-3 text-left hover:bg-stone-800 transition-colors duration-200 border-b border-stone-700 ${
+                      selectedCategory === null ? "bg-red-950/60 text-amber-400 font-medium" : "text-stone-300"
                     }`}
                   >
                     Todas las categorías
@@ -154,15 +154,15 @@ export default function FilterBar({
                           setSelectedCategory(category.id)
                           setShowCategoryDropdown(false)
                         }}
-                        className={`w-full px-4 py-3 text-left hover:bg-blue-50 transition-colors duration-200 border-b border-gray-100 last:border-b-0 ${
-                          selectedCategory === category.id ? "bg-blue-100 text-blue-600 font-medium" : "text-gray-700"
+                        className={`w-full px-4 py-3 text-left hover:bg-stone-800 transition-colors duration-200 border-b border-stone-700 last:border-b-0 ${
+                          selectedCategory === category.id ? "bg-red-950/60 text-amber-400 font-medium" : "text-stone-300"
                         }`}
                       >
                         {category.descripcion}
                       </button>
                     ))
                   ) : (
-                    <div className="px-4 py-3 text-gray-500 text-sm">
+                    <div className="px-4 py-3 text-stone-500 text-sm">
                       No hay categorías disponibles
                     </div>
                   )}
@@ -173,7 +173,7 @@ export default function FilterBar({
 
           {/* Filtro por marca */}
           <div className="relative" ref={brandRef}>
-            <label className="block text-sm font-semibold text-gray-700 mb-3">
+            <label className="block text-sm font-semibold text-stone-300 mb-3">
               Marca
             </label>
             <button
@@ -181,28 +181,28 @@ export default function FilterBar({
                 setShowBrandDropdown(!showBrandDropdown)
                 setShowCategoryDropdown(false)
               }}
-              className="w-full px-4 py-4 bg-gray-50 border-2 border-gray-200 rounded-xl text-left flex items-center justify-between hover:bg-gray-100 hover:border-gray-300 transition-all duration-300"
+              className="w-full px-4 py-4 bg-zinc-950/80 border-2 border-stone-600 rounded-xl text-left flex items-center justify-between hover:bg-stone-800 hover:border-stone-500 transition-all duration-300"
             >
-              <span className={selectedBrand === null ? "text-gray-500" : "text-gray-900 font-medium"}>
+              <span className={selectedBrand === null ? "text-stone-500" : "text-stone-100 font-medium"}>
                 {selectedBrandName}
               </span>
               <ChevronDown
-                className={`transition-transform duration-300 text-gray-400 ${showBrandDropdown ? "rotate-180" : ""}`}
+                className={`transition-transform duration-300 text-stone-500 ${showBrandDropdown ? "rotate-180" : ""}`}
                 size={16}
               />
             </button>
 
             {/* Dropdown de marcas */}
             {showBrandDropdown && (
-              <div className="absolute top-full left-0 right-0 mt-2 bg-white border-2 border-gray-200 rounded-xl shadow-2xl z-50 filter-dropdown">
+              <div className="absolute top-full left-0 right-0 mt-2 bg-zinc-900 border-2 border-stone-600 rounded-xl shadow-2xl z-50 filter-dropdown">
                 <div className="max-h-64 overflow-y-auto">
                   <button
                     onClick={() => {
                       setSelectedBrand(null)
                       setShowBrandDropdown(false)
                     }}
-                    className={`w-full px-4 py-3 text-left hover:bg-blue-50 transition-colors duration-200 border-b border-gray-100 ${
-                      selectedBrand === null ? "bg-blue-100 text-blue-600 font-medium" : "text-gray-700"
+                    className={`w-full px-4 py-3 text-left hover:bg-stone-800 transition-colors duration-200 border-b border-stone-700 ${
+                      selectedBrand === null ? "bg-red-950/60 text-amber-400 font-medium" : "text-stone-300"
                     }`}
                   >
                     Todas las marcas
@@ -215,15 +215,15 @@ export default function FilterBar({
                           setSelectedBrand(brand.id)
                           setShowBrandDropdown(false)
                         }}
-                        className={`w-full px-4 py-3 text-left hover:bg-blue-50 transition-colors duration-200 border-b border-gray-100 last:border-b-0 ${
-                          selectedBrand === brand.id ? "bg-blue-100 text-blue-600 font-medium" : "text-gray-700"
+                        className={`w-full px-4 py-3 text-left hover:bg-stone-800 transition-colors duration-200 border-b border-stone-700 last:border-b-0 ${
+                          selectedBrand === brand.id ? "bg-red-950/60 text-amber-400 font-medium" : "text-stone-300"
                         }`}
                       >
                         {brand.descripcion}
                       </button>
                     ))
                   ) : (
-                    <div className="px-4 py-3 text-gray-500 text-sm">
+                    <div className="px-4 py-3 text-stone-500 text-sm">
                       No hay marcas disponibles
                     </div>
                   )}
@@ -237,14 +237,14 @@ export default function FilterBar({
 
         {/* Contador de filtros activos */}
         {hasActiveFilters && (
-          <div className="mt-6 pt-4 border-t border-gray-100">
-            <div className="flex items-center gap-2 text-sm text-gray-600">
+          <div className="mt-6 pt-4 border-t border-stone-700">
+            <div className="flex items-center gap-2 text-sm text-stone-400">
               <Filter size={16} />
               <span>
                 Filtros activos: 
-                {searchTerm && <span className="ml-1 px-2 py-1 bg-blue-100 text-blue-600 rounded-md">Búsqueda</span>}
-                {selectedCategory && <span className="ml-1 px-2 py-1 bg-blue-100 text-blue-600 rounded-md">Categoría</span>}
-                {selectedBrand && <span className="ml-1 px-2 py-1 bg-blue-100 text-blue-600 rounded-md">Marca</span>}
+                {searchTerm && <span className="ml-1 px-2 py-1 bg-red-950/50 text-amber-400 rounded-md">Búsqueda</span>}
+                {selectedCategory && <span className="ml-1 px-2 py-1 bg-red-950/50 text-amber-400 rounded-md">Categoría</span>}
+                {selectedBrand && <span className="ml-1 px-2 py-1 bg-red-950/50 text-amber-400 rounded-md">Marca</span>}
               </span>
             </div>
           </div>

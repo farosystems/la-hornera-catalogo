@@ -62,17 +62,17 @@ export default function AddToListButton({ product, variant = 'card' }: AddToList
       <div className="w-full flex items-center gap-2">
         <button
           onClick={() => quantity > 1 && setQuantity(product.id, quantity - 1)}
-          className="w-8 h-8 rounded-lg bg-gray-200 hover:bg-gray-300 flex items-center justify-center transition-colors"
+          className="w-8 h-8 rounded-lg bg-stone-700 hover:bg-stone-600 text-stone-100 flex items-center justify-center transition-colors"
         >
           <Minus className="w-4 h-4" />
         </button>
-        <div className="flex-1 text-center font-semibold text-sm bg-green-100 text-green-700 py-1.5 rounded-xl">
+        <div className="flex-1 text-center font-semibold text-sm bg-emerald-950/60 text-emerald-300 py-1.5 rounded-xl border border-emerald-900/50">
           <Check className="w-4 h-4 inline mr-1" />
           {quantity} en lista
         </div>
         <button
           onClick={() => setQuantity(product.id, quantity + 1)}
-          className="w-8 h-8 rounded-lg bg-blue-600 hover:bg-blue-700 text-white flex items-center justify-center transition-colors"
+          className="w-8 h-8 rounded-lg bg-red-900 hover:bg-red-800 text-amber-50 flex items-center justify-center transition-colors"
         >
           <Plus className="w-4 h-4" />
         </button>
@@ -117,17 +117,17 @@ export default function AddToListButton({ product, variant = 'card' }: AddToList
     <div className="w-full flex items-center gap-3">
       <button
         onClick={() => quantity > 1 && setQuantity(product.id, quantity - 1)}
-        className="w-12 h-12 rounded-xl bg-gray-200 hover:bg-gray-300 flex items-center justify-center transition-colors"
+        className="w-12 h-12 rounded-xl bg-stone-700 hover:bg-stone-600 text-stone-100 flex items-center justify-center transition-colors"
       >
         <Minus className="w-5 h-5" />
       </button>
-      <div className="flex-1 text-center font-semibold text-base bg-green-100 text-green-700 py-2 rounded-xl">
+      <div className="flex-1 text-center font-semibold text-base bg-emerald-950/60 text-emerald-300 py-2 rounded-xl border border-emerald-900/50">
         <Check className="w-5 h-5 inline mr-2" />
         {quantity} en tu lista
       </div>
       <button
         onClick={() => setQuantity(product.id, quantity + 1)}
-        className="w-12 h-12 rounded-xl bg-blue-600 hover:bg-blue-700 text-white flex items-center justify-center transition-colors"
+        className="w-12 h-12 rounded-xl bg-red-900 hover:bg-red-800 text-amber-50 flex items-center justify-center transition-colors"
       >
         <Plus className="w-5 h-5" />
       </button>

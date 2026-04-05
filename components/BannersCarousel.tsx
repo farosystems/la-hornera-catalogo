@@ -55,11 +55,11 @@ export default function BannersCarousel() {
   }
 
   return (
-    <section className="py-4 sm:py-8" style={{ background: 'linear-gradient(135deg, #f0f9ff, #dbeafe, #f0f9ff)' }}>
+    <section className="py-4 sm:py-8" style={{ background: 'linear-gradient(135deg, #0c0a0a, #1a1210, #0c0a0a)' }}>
       <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
         <div className="relative group">
           {/* Contenedor del carrusel */}
-          <div className="relative overflow-hidden rounded-xl sm:rounded-2xl border-4 sm:border-8 bg-gradient-to-r from-blue-50 to-blue-100" style={{ boxShadow: '0 20px 60px rgba(0, 112, 187, 0.5)', borderColor: '#0070bb' }}>
+          <div className="relative overflow-hidden rounded-xl sm:rounded-2xl border-4 sm:border-8 bg-gradient-to-r from-stone-900 to-zinc-900" style={{ boxShadow: '0 20px 60px rgba(60, 15, 15, 0.45)', borderColor: '#5c1f1f' }}>
             {/* Banners */}
             <div
               className="flex transition-transform duration-700 ease-in-out"
@@ -85,7 +85,7 @@ export default function BannersCarousel() {
                 {/* Botón Anterior */}
                 <button
                   onClick={goToPrevious}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-stone-900/90 hover:bg-stone-800 text-amber-100 p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-stone-600"
                   aria-label="Banner anterior"
                 >
                   <ChevronLeft size={24} />
@@ -94,7 +94,7 @@ export default function BannersCarousel() {
                 {/* Botón Siguiente */}
                 <button
                   onClick={goToNext}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-stone-900/90 hover:bg-stone-800 text-amber-100 p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 border border-stone-600"
                   aria-label="Banner siguiente"
                 >
                   <ChevronRight size={24} />
@@ -113,9 +113,9 @@ export default function BannersCarousel() {
                   className={`transition-all duration-300 rounded-full ${
                     index === currentIndex
                       ? "w-8 h-3"
-                      : "bg-gray-300 hover:bg-gray-400 w-3 h-3"
+                      : "bg-stone-600 hover:bg-stone-500 w-3 h-3"
                   }`}
-                  style={index === currentIndex ? { backgroundColor: '#0070bb' } : {}}
+                  style={index === currentIndex ? { backgroundColor: '#b45309' } : {}}
                   aria-label={`Ir al banner ${index + 1}`}
                 />
               ))}

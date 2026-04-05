@@ -157,12 +157,12 @@ function BuscarPageContent() {
 
   if (loading || combosLoading) {
     return (
-      <div className="bg-gradient-to-br from-gray-50 to-blue-50 min-h-screen">
+      <div className="bg-gradient-to-br from-zinc-950 via-stone-950 to-zinc-950 min-h-screen">
         <GlobalAppBar />
         <div className="flex items-center justify-center py-20" style={{ marginTop: '10px' }}>
           <div className="text-center">
-            <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-emerald-600 mx-auto mb-4"></div>
-            <h2 className="text-2xl font-bold text-gray-900">Cargando productos y combos...</h2>
+            <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-red-800 mx-auto mb-4"></div>
+            <h2 className="text-2xl font-bold text-stone-100">Cargando productos y combos...</h2>
           </div>
         </div>
         <Footer />
@@ -172,11 +172,11 @@ function BuscarPageContent() {
 
   if (error) {
     return (
-      <div className="bg-gradient-to-br from-gray-50 to-blue-50 min-h-screen">
+      <div className="bg-gradient-to-br from-zinc-950 via-stone-950 to-zinc-950 min-h-screen">
         <GlobalAppBar />
         <div className="flex items-center justify-center py-20" style={{ marginTop: '140px' }}>
           <div className="text-center">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Error al cargar productos</h2>
+            <h2 className="text-2xl font-bold text-stone-100 mb-4">Error al cargar productos</h2>
             <p className="text-xl text-red-600">{error}</p>
           </div>
         </div>
@@ -186,7 +186,7 @@ function BuscarPageContent() {
   }
 
   return (
-    <div className="bg-gradient-to-br from-gray-50 to-blue-50 min-h-screen">
+    <div className="bg-gradient-to-br from-zinc-950 via-stone-950 to-zinc-950 min-h-screen">
       <GlobalAppBar />
       
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16 py-4" style={{ marginTop: '40px' }}>
@@ -194,17 +194,17 @@ function BuscarPageContent() {
         {!searchTerm && (
           <div className="mb-8">
             <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl font-bold text-gray-900 mb-6 bg-gradient-to-r from-violet-600 to-blue-600 bg-clip-text text-transparent">
+              <h1 className="text-4xl font-bold text-stone-100 mb-6 bg-gradient-to-r from-amber-500 to-red-800 bg-clip-text text-transparent">
                 Búsqueda de Productos
               </h1>
               <div className="relative">
-                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" size={24} />
+                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-stone-500" size={24} />
                 <input
                   type="text"
                   placeholder="Buscar productos, combos, marcas, categorías..."
                   value={searchTerm}
                   onChange={handleSearchChange}
-                  className="w-full pl-16 pr-4 py-6 bg-white border-2 border-gray-200 rounded-2xl shadow-lg focus:ring-2 focus:ring-violet-500 focus:border-transparent transition-all duration-300 text-xl placeholder-gray-400"
+                  className="w-full pl-16 pr-4 py-6 bg-zinc-900 border-2 border-stone-600 rounded-2xl shadow-lg focus:ring-2 focus:ring-red-800 focus:border-transparent transition-all duration-300 text-xl text-stone-100 placeholder-stone-500"
                   autoFocus
                 />
               </div>
@@ -216,11 +216,11 @@ function BuscarPageContent() {
         {/* Estado inicial sin búsqueda */}
         {!searchTerm && (
           <div className="text-center py-20">
-            <Search size={80} className="mx-auto mb-6 text-gray-300" />
-            <h3 className="text-2xl font-semibold text-gray-700 mb-4">
+            <Search size={80} className="mx-auto mb-6 text-stone-600" />
+            <h3 className="text-2xl font-semibold text-stone-300 mb-4">
               ¿Qué estás buscando?
             </h3>
-            <p className="text-gray-500 text-lg max-w-md mx-auto">
+            <p className="text-stone-500 text-lg max-w-md mx-auto">
               Utiliza el buscador para encontrar productos, marcas o categorías específicas
             </p>
           </div>
@@ -228,12 +228,12 @@ function BuscarPageContent() {
 
         {/* Información de búsqueda */}
         {searchTerm && (
-          <div className="mb-8 bg-white p-6 rounded-xl shadow-lg border border-gray-200">
+          <div className="mb-8 bg-zinc-900/90 p-6 rounded-xl shadow-lg border border-stone-700">
             <div className="text-center">
-              <h2 className="text-2xl font-bold text-gray-800 mb-2">
-                Resultados para: <span className="text-emerald-600">"{searchTerm}"</span>
+              <h2 className="text-2xl font-bold text-stone-200 mb-2">
+                Resultados para: <span className="text-amber-500">"{searchTerm}"</span>
               </h2>
-              <p className="text-lg text-gray-600">
+              <p className="text-lg text-stone-400">
                 {allItems.length === 0
                   ? "No se encontraron productos ni combos"
                   : `${filteredProducts.length} ${filteredProducts.length === 1 ? 'producto' : 'productos'}${combos.length > 0 ? ` y ${combos.length} ${combos.length === 1 ? 'combo' : 'combos'} encontrados` : ' encontrados'}`
@@ -270,20 +270,20 @@ function BuscarPageContent() {
               </div>
             ) : (
               <div className="text-center py-16">
-                <Package size={64} className="mx-auto mb-4 text-gray-300" />
-                <h3 className="text-xl font-semibold text-gray-700 mb-2">
+                <Package size={64} className="mx-auto mb-4 text-stone-600" />
+                <h3 className="text-xl font-semibold text-stone-300 mb-2">
                   No se encontraron productos o combos
                 </h3>
-                <p className="text-gray-500 mb-6">
+                <p className="text-stone-500 mb-6">
                   No hay productos o combos que coincidan con "{searchTerm}"
                 </p>
                 <div className="space-y-4">
-                  <p className="text-sm text-gray-400">
+                  <p className="text-sm text-stone-500">
                     Intenta con términos más generales o revisa la ortografía
                   </p>
                   <button
                     onClick={handleClearFilters}
-                    className="px-6 py-3 bg-emerald-600 text-white rounded-lg hover:bg-violet-700 transition-colors"
+                    className="px-6 py-3 bg-red-900 text-amber-50 rounded-lg hover:bg-red-800 transition-colors"
                   >
                     Nueva búsqueda
                   </button>
@@ -301,12 +301,12 @@ function BuscarPageContent() {
 export default function BuscarPage() {
   return (
     <Suspense fallback={
-      <div className="bg-gradient-to-br from-gray-50 to-blue-50 min-h-screen">
+      <div className="bg-gradient-to-br from-zinc-950 via-stone-950 to-zinc-950 min-h-screen">
         <GlobalAppBar />
         <div className="flex items-center justify-center py-20" style={{ marginTop: '10px' }}>
           <div className="text-center">
-            <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-emerald-600 mx-auto mb-4"></div>
-            <h2 className="text-2xl font-bold text-gray-900">Cargando página de búsqueda...</h2>
+            <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-red-800 mx-auto mb-4"></div>
+            <h2 className="text-2xl font-bold text-stone-100">Cargando página de búsqueda...</h2>
           </div>
         </div>
         <Footer />

@@ -1,11 +1,12 @@
 'use client'
 
 import Link from "next/link"
-import { Menu, ShoppingBag, X, Home, Star } from "lucide-react"
+import { Menu, ShoppingBag, X } from "lucide-react"
 import ProductSearch from "./ProductSearch"
 import FiltersDropdown from "./FiltersDropdown"
+import FiltersQuickBar from "./FiltersQuickBar"
 import ShoppingListModal from "./ShoppingListModal"
-import { useState, useEffect } from "react"
+import { useState, useEffect, type CSSProperties } from "react"
 import { useShoppingList } from "@/hooks/use-shopping-list"
 import { useConfiguracionWebContext } from '@/contexts/ConfiguracionWebContext'
 import { useIsMobile } from '@/hooks/use-mobile'
@@ -44,30 +45,17 @@ export default function GlobalAppBar() {
     return () => window.removeEventListener('resize', handleResize)
   }, [])
   
-  const scrollToProducts = () => {
-    const productsSection = document.getElementById('productos')
-    if (productsSection) {
-      productsSection.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
-
-  const getAppBarStyle = () => {
+  const getAppBarStyle = (): CSSProperties => {
     if (!configuracion) return {}
     return {
-      backgroundColor: configuracion.appbar_background_color,
-      borderBottomColor: configuracion.primary_color
+      borderBottomColor: configuracion.primary_color,
     }
-  }
-
-  const getTextColor = () => {
-    if (!configuracion) return "#ffffff"
-    return configuracion.appbar_text_color
   }
 
   return (
     <>
       <div 
-        className="sticky top-0 z-50 shadow-lg border-b"
+        className="sticky top-0 z-50 border-b border-border bg-background text-stone-100 shadow-lg [&_input]:text-stone-100 [&_input]:placeholder:text-stone-500"
         style={getAppBarStyle()}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -84,12 +72,6 @@ export default function GlobalAppBar() {
                       alt="La Hornera"
                       className="h-12 sm:h-16 w-auto transition-transform duration-300 group-hover:scale-105"
                     />
-                  ) : isMobile ? (
-                    <img
-                      src="/LOGO2.png"
-                      alt="La Hornera"
-                      className="h-24 sm:h-28 w-auto transition-transform duration-300 group-hover:scale-105"
-                    />
                   ) : configuracion?.logo_url ? (
                     <img
                       src={configuracion.logo_url}
@@ -101,6 +83,12 @@ export default function GlobalAppBar() {
                       }}
                       className="transition-transform duration-300 group-hover:scale-105"
                     />
+                  ) : isMobile ? (
+                    <img
+                      src="/LOGO2.png"
+                      alt="La Hornera"
+                      className="h-24 sm:h-28 w-auto transition-transform duration-300 group-hover:scale-105"
+                    />
                   ) : (
                     <img
                       src="/LOGO2.png"
@@ -108,7 +96,7 @@ export default function GlobalAppBar() {
                       className="lg:h-36 xl:h-40 w-auto transition-transform duration-300 group-hover:scale-105"
                     />
                   )}
-                  <div className="absolute inset-0 bg-violet-400 opacity-0 group-hover:opacity-10 rounded-lg transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-red-600 opacity-0 group-hover:opacity-10 rounded-lg transition-opacity duration-300"></div>
                 </div>
               </Link>
             </div>
@@ -127,14 +115,10 @@ export default function GlobalAppBar() {
             <div className="flex items-center space-x-2 sm:space-x-4 lg:hidden">
               {/* Indicador de estado - oculto en móvil */}
               <div
-                className="hidden sm:flex items-center space-x-2 rounded-full px-2 sm:px-3 py-1 backdrop-blur-sm opacity-30"
-                style={{ backgroundColor: configuracion?.primary_color || "#0066cc" }}
+                className="hidden sm:flex items-center space-x-2 rounded-full px-2 sm:px-3 py-1 border border-stone-600/60 bg-red-950/50 backdrop-blur-sm text-stone-100"
               >
-                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                <span 
-                  className="text-xs font-medium opacity-75"
-                  style={{ color: getTextColor() }}
-                >
+                <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse shrink-0" />
+                <span className="text-xs font-medium">
                   En línea
                 </span>
               </div>
@@ -144,7 +128,7 @@ export default function GlobalAppBar() {
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className="hover:opacity-70 transition-colors duration-300 p-2 rounded-full text-white"
                 style={{
-                  backgroundColor: "#0070bb"
+                  backgroundColor: "#7f1d1d"
                 }}
                 aria-label="Abrir menú"
               >
@@ -153,8 +137,10 @@ export default function GlobalAppBar() {
             </div>
           </div>
 
+          <FiltersQuickBar />
+
           {/* Navegación desktop */}
-          <div className="hidden lg:flex items-center justify-between py-3 border-t border-violet-800/30 px-6">
+          <div className="hidden lg:flex items-center justify-between py-3 border-t border-red-950/40 px-6">
             {/* Categorías */}
             <div
               className="relative"
@@ -162,8 +148,7 @@ export default function GlobalAppBar() {
               onMouseLeave={() => setIsCategoriesOpen(false)}
             >
               <button
-                className="hover:opacity-70 transition-colors duration-300 font-bold text-lg flex items-center"
-                style={{ color: getTextColor() }}
+                className="hover:opacity-80 transition-colors duration-300 font-bold text-lg flex items-center text-stone-100"
               >
                 <Menu className="mr-2 size-6" />
                 Filtros
@@ -177,32 +162,12 @@ export default function GlobalAppBar() {
                 />
               </div>
             </div>
-            
-            {/* Navegación central */}
-            <nav className="flex items-center space-x-95">
-              <Link
-                href="/"
-                className="hover:opacity-70 transition-colors duration-300 font-bold text-lg underline underline-offset-4"
-                style={{ color: getTextColor() }}
-              >
-                Inicio
-              </Link>
 
-              <Link
-                href="/#destacados"
-                className="hover:opacity-70 transition-colors duration-300 font-bold text-lg"
-                style={{ color: getTextColor() }}
-              >
-                Destacados
-              </Link>
-            </nav>
-            
             {/* Mi Lista a la derecha - desktop */}
             <div className="flex items-center">
               <button
                 onClick={() => setIsShoppingListOpen(true)}
-                className="hover:opacity-70 transition-colors duration-300 font-bold text-lg flex items-center gap-2"
-                style={{ color: getTextColor() }}
+                className="hover:opacity-80 transition-colors duration-300 font-bold text-lg flex items-center gap-2 text-stone-100"
                 title="Mis Pedidos"
               >
                 <ShoppingBag size={20} />
@@ -215,34 +180,15 @@ export default function GlobalAppBar() {
 
         {/* Menú móvil */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden bg-red-600 border-t border-red-700">
+          <div className="lg:hidden bg-zinc-950 border-t border-red-950/50">
             <div className="px-4 py-4 space-y-1">
-              {/* Navegación principal */}
-              <Link
-                href="/"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="flex items-center px-4 py-3 hover:bg-red-700 rounded-lg transition-colors font-medium text-white"
-              >
-                <Home className="mr-3" size={20} />
-                Inicio
-              </Link>
-
-              <Link
-                href="/#destacados"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="flex items-center px-4 py-3 hover:bg-red-700 rounded-lg transition-colors font-medium text-white"
-              >
-                <Star className="mr-3" size={20} />
-                Destacados
-              </Link>
-
               {/* Mi Lista móvil */}
               <button
                 onClick={() => {
                   setIsShoppingListOpen(true)
                   setIsMobileMenuOpen(false)
                 }}
-                className="flex items-center px-4 py-3 hover:bg-red-700 rounded-lg transition-colors font-medium text-white w-full"
+                className="flex items-center px-4 py-3 hover:bg-red-950/80 rounded-lg transition-colors font-medium text-stone-100 w-full"
               >
                 <ShoppingBag className="mr-3" size={20} />
                 Mis Pedidos ({itemCount})
@@ -254,7 +200,7 @@ export default function GlobalAppBar() {
                   setIsMobileCategoriesOpen(true)
                   setIsMobileMenuOpen(false)
                 }}
-                className="flex items-center w-full px-4 py-3 hover:bg-red-700 rounded-lg transition-colors font-medium text-white"
+                className="flex items-center w-full px-4 py-3 hover:bg-red-950/80 rounded-lg transition-colors font-medium text-stone-100"
               >
                 <div className="flex items-center">
                   <Menu className="mr-3" size={20} />

@@ -75,10 +75,10 @@ export default function ComboPageClient({ params: paramsPromise }: ComboPageClie
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-zinc-950 flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-emerald-600 mx-auto"></div>
-          <p className="mt-4 text-gray-600">Cargando combo...</p>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-800 mx-auto"></div>
+          <p className="mt-4 text-stone-400">Cargando combo...</p>
         </div>
       </div>
     )
@@ -124,27 +124,27 @@ export default function ComboPageClient({ params: paramsPromise }: ComboPageClie
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-zinc-950 via-stone-950 to-zinc-950">
       <GlobalAppBar />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8">
         {/* Breadcrumb */}
-        <nav className="flex items-center space-x-2 text-sm text-gray-500 mb-4 sm:mb-8">
+        <nav className="flex items-center space-x-2 text-sm text-stone-500 mb-4 sm:mb-8">
           <button
             onClick={handleBackToHome}
-            className="hover:text-emerald-600 transition-colors"
+            className="hover:text-amber-500 transition-colors"
           >
             Inicio
           </button>
           <span>/</span>
           <button
             onClick={handleBackToHome}
-            className="hover:text-emerald-600 transition-colors"
+            className="hover:text-amber-500 transition-colors"
           >
             Combos
           </button>
           <span>/</span>
-          <span className="text-gray-900 font-medium">{combo.nombre}</span>
+          <span className="text-stone-100 font-medium">{combo.nombre}</span>
         </nav>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
@@ -180,7 +180,7 @@ export default function ComboPageClient({ params: paramsPromise }: ComboPageClie
               </div>
 
               {/* Título */}
-              <h1 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">
+              <h1 className="text-xl sm:text-2xl font-bold text-stone-100 mb-4">
                 {combo.nombre}
               </h1>
 
@@ -199,7 +199,7 @@ export default function ComboPageClient({ params: paramsPromise }: ComboPageClie
 
               {/* Vigencia móvil */}
               {combo.fecha_vigencia_fin && (
-                <div className="flex items-center space-x-2 text-gray-600 mb-4">
+                <div className="flex items-center space-x-2 text-stone-400 mb-4">
                   <Calendar className="w-5 h-5" />
                   <span>
                     Válido hasta: {new Date(combo.fecha_vigencia_fin).toLocaleDateString('es-AR')}
@@ -234,7 +234,7 @@ export default function ComboPageClient({ params: paramsPromise }: ComboPageClie
             </div>
 
             {/* Título */}
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-stone-100">
               {combo.nombre}
             </h1>
 
@@ -253,7 +253,7 @@ export default function ComboPageClient({ params: paramsPromise }: ComboPageClie
 
             {/* Vigencia */}
             {combo.fecha_vigencia_fin && (
-              <div className="flex items-center space-x-2 text-gray-600">
+              <div className="flex items-center space-x-2 text-stone-400">
                 <Calendar className="w-5 h-5" />
                 <span>
                   Válido hasta: {new Date(combo.fecha_vigencia_fin).toLocaleDateString('es-AR')}
@@ -273,8 +273,8 @@ export default function ComboPageClient({ params: paramsPromise }: ComboPageClie
             <div className="border-t pt-6 space-y-4">
               <div className="text-sm">
                 <div>
-                  <span className="font-medium text-gray-900">Productos incluidos:</span>
-                  <span className="text-gray-600 ml-1">{combo.productos?.length || 0}</span>
+                  <span className="font-medium text-stone-100">Productos incluidos:</span>
+                  <span className="text-stone-400 ml-1">{combo.productos?.length || 0}</span>
                 </div>
               </div>
             </div>
@@ -282,19 +282,19 @@ export default function ComboPageClient({ params: paramsPromise }: ComboPageClie
         </div>
 
         {/* Información adicional móvil */}
-        <div className="lg:hidden bg-white rounded-lg p-4 shadow-sm mb-8">
+        <div className="lg:hidden bg-zinc-900/90 border border-stone-700 rounded-lg p-4 shadow-sm mb-8">
           <div className="text-sm">
             <div>
-              <span className="font-medium text-gray-900">Productos incluidos:</span>
-              <span className="text-gray-600 ml-1">{combo.productos?.length || 0}</span>
+              <span className="font-medium text-stone-100">Productos incluidos:</span>
+              <span className="text-stone-400 ml-1">{combo.productos?.length || 0}</span>
             </div>
           </div>
         </div>
 
         {/* Descripción del Combo */}
         <div className="mt-12 mb-8">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6 text-center">Descripción del Combo</h2>
-          <div className="bg-white rounded-lg p-6 shadow-sm max-w-4xl mx-auto">
+          <h2 className="text-xl sm:text-2xl font-bold text-stone-100 mb-6 text-center">Descripción del Combo</h2>
+          <div className="bg-zinc-900/90 border border-stone-700 rounded-lg p-6 shadow-sm max-w-4xl mx-auto">
             <FormattedProductDescription description={comboDescription} />
           </div>
         </div>
@@ -308,10 +308,10 @@ export default function ComboPageClient({ params: paramsPromise }: ComboPageClie
         {relatedCombos.length > 0 && (
           <div className="mt-16 mb-16">
             <div className="text-center mb-12">
-              <h2 className="text-xl sm:text-3xl font-bold text-gray-900 mb-4">
+              <h2 className="text-xl sm:text-3xl font-bold text-stone-100 mb-4">
                 Otros Combos Especiales
               </h2>
-              <p className="text-xs md:text-sm text-gray-600">
+              <p className="text-xs md:text-sm text-stone-400">
                 Descubre más combos con descuentos increíbles
               </p>
             </div>
@@ -326,9 +326,9 @@ export default function ComboPageClient({ params: paramsPromise }: ComboPageClie
                       className="flex-shrink-0 w-64"
                     >
                       {/* Usar ComboCard aquí cuando esté disponible */}
-                      <div className="bg-white rounded-lg p-4 shadow-sm">
-                        <h3 className="font-semibold">{relatedCombo.nombre}</h3>
-                        <p className="text-emerald-600 font-bold">
+                      <div className="bg-zinc-900/90 border border-stone-700 rounded-lg p-4 shadow-sm">
+                        <h3 className="font-semibold text-stone-100">{relatedCombo.nombre}</h3>
+                        <p className="text-amber-500 font-bold">
                           ${relatedCombo.precio_combo.toLocaleString()}
                         </p>
                       </div>
@@ -344,9 +344,9 @@ export default function ComboPageClient({ params: paramsPromise }: ComboPageClie
                 {relatedCombos.slice(0, 3).map((relatedCombo) => (
                   <div key={relatedCombo.id} className="animate-fade-in-up">
                     {/* Usar ComboCard aquí cuando esté disponible */}
-                    <div className="bg-white rounded-lg p-4 shadow-sm">
-                      <h3 className="font-semibold">{relatedCombo.nombre}</h3>
-                      <p className="text-emerald-600 font-bold">
+                    <div className="bg-zinc-900/90 border border-stone-700 rounded-lg p-4 shadow-sm">
+                      <h3 className="font-semibold text-stone-100">{relatedCombo.nombre}</h3>
+                      <p className="text-amber-500 font-bold">
                         ${relatedCombo.precio_combo.toLocaleString()}
                       </p>
                     </div>

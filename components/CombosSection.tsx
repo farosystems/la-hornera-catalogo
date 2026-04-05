@@ -44,10 +44,10 @@ export default function CombosSection() {
 
   if (loading) {
     return (
-      <section className="py-20 bg-gradient-to-br from-emerald-700 via-emerald-600 to-emerald-700 text-white">
+      <section className="py-20 bg-gradient-to-br from-zinc-950 via-stone-900 to-zinc-950 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <p className="text-xl text-emerald-100">Cargando combos...</p>
+            <p className="text-xl text-stone-300">Cargando combos...</p>
           </div>
         </div>
       </section>
@@ -56,7 +56,7 @@ export default function CombosSection() {
 
   if (error) {
     return (
-      <section className="py-20 bg-gradient-to-br from-emerald-700 via-emerald-600 to-emerald-700 text-white">
+      <section className="py-20 bg-gradient-to-br from-zinc-950 via-stone-900 to-zinc-950 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <p className="text-xl text-red-300">Error al cargar los combos: {error}</p>
@@ -85,12 +85,12 @@ export default function CombosSection() {
   return (
     <section
       id="combos"
-      className="pt-8 pb-20 bg-gradient-to-br from-emerald-700 via-emerald-600 to-emerald-700 text-white relative overflow-hidden"
+      className="pt-8 pb-20 bg-gradient-to-br from-zinc-950 via-red-950/40 to-stone-950 text-white relative overflow-hidden"
     >
       {/* Fondo animado */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-white rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-20 right-10 w-40 h-40 bg-emerald-400 rounded-full blur-3xl animate-float delay-200"></div>
+        <div className="absolute top-20 left-10 w-32 h-32 bg-amber-900/40 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute bottom-20 right-10 w-40 h-40 bg-red-950/50 rounded-full blur-3xl animate-float delay-200"></div>
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -98,7 +98,7 @@ export default function CombosSection() {
           <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-yellow-400 to-yellow-300 bg-clip-text text-transparent">
             {tituloSeccion}
           </h2>
-          <p className="text-xl text-emerald-100 max-w-2xl mx-auto">
+          <p className="text-xl text-stone-300 max-w-2xl mx-auto">
             {subtitulo}
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-yellow-500 mx-auto mt-4 rounded-full animate-pulse-glow"></div>
@@ -106,7 +106,7 @@ export default function CombosSection() {
 
         {/* Contador de combos */}
         <div className="mb-8 text-center mt-4">
-          <p className="text-emerald-100">
+          <p className="text-stone-300">
             <span className="md:hidden">
               <span className="font-semibold text-white">{combos.length}</span> combos disponibles
             </span>

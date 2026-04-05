@@ -25,7 +25,7 @@ export default function FormattedProductDescription({ description }: FormattedPr
       <div 
         className="prose prose-gray max-w-none
         prose-h1:text-2xl prose-h1:font-bold prose-h1:text-emerald-700 prose-h1:mb-4
-        prose-h2:text-xl prose-h2:font-bold prose-h2:text-emerald-600 prose-h2:mb-3
+        prose-h2:text-xl prose-h2:font-bold prose-h2:text-amber-600 prose-h2:mb-3
         prose-h3:text-lg prose-h3:font-semibold prose-h3:text-gray-800 prose-h3:mb-2
         prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-4
         prose-strong:text-gray-900 prose-strong:font-semibold

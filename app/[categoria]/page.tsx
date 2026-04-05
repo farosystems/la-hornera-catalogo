@@ -160,11 +160,11 @@ export default function CategoriaPage({ params }: CategoriaPageProps) {
 
   if (loading || combosLoading) {
     return (
-      <div className="bg-gradient-to-br from-gray-50 to-blue-50 min-h-screen">
+      <div className="bg-gradient-to-br from-zinc-950 via-stone-950 to-zinc-950 min-h-screen">
         <GlobalAppBar />
         <div className="flex items-center justify-center py-20" style={{ marginTop: '140px' }}>
           <div className="text-center">
-            <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-violet-600 mx-auto mb-4"></div>
+            <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-red-800 mx-auto mb-4"></div>
             <h2 className="text-2xl font-bold text-gray-900">Cargando productos y combos...</h2>
           </div>
         </div>
@@ -175,7 +175,7 @@ export default function CategoriaPage({ params }: CategoriaPageProps) {
 
   if (error) {
     return (
-      <div className="bg-gradient-to-br from-gray-50 to-blue-50 min-h-screen">
+      <div className="bg-gradient-to-br from-zinc-950 via-stone-950 to-zinc-950 min-h-screen">
         <GlobalAppBar />
         <div className="flex items-center justify-center py-20" style={{ marginTop: '140px' }}>
           <div className="text-center">
@@ -190,7 +190,7 @@ export default function CategoriaPage({ params }: CategoriaPageProps) {
 
   if (!categoria) {
     return (
-      <div className="bg-gradient-to-br from-gray-50 to-blue-50 min-h-screen">
+      <div className="bg-gradient-to-br from-zinc-950 via-stone-950 to-zinc-950 min-h-screen">
         <GlobalAppBar />
         <div className="flex items-center justify-center py-20" style={{ marginTop: '140px' }}>
           <div className="text-center">
@@ -204,14 +204,14 @@ export default function CategoriaPage({ params }: CategoriaPageProps) {
   }
 
   return (
-    <div className="bg-gradient-to-br from-gray-50 to-blue-50 min-h-screen">
+    <div className="bg-gradient-to-br from-zinc-950 via-stone-950 to-zinc-950 min-h-screen">
       <GlobalAppBar />
       
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16 py-4" style={{ marginTop: '40px' }}>
         {/* Header de la página */}
         <div className="mb-6">
           <div className="text-center w-full">
-            <h1 className="text-2xl font-bold text-gray-900 mb-4 bg-gradient-to-r from-emerald-600 to-emerald-600 bg-clip-text text-transparent">
+            <h1 className="text-2xl font-bold text-stone-100 mb-4 bg-gradient-to-r from-amber-500 to-red-800 bg-clip-text text-transparent">
               {categoria.descripcion}
             </h1>
           </div>

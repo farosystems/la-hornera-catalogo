@@ -9,9 +9,11 @@ import { formatearPrecio, isOfertaVigente } from "@/lib/supabase-products"
 
 interface ProductCardProps {
   product: Product
+  /** Imagen más baja (p. ej. carrusel de destacados) */
+  compact?: boolean
 }
 
-export default function ProductCard({ product }: ProductCardProps) {
+export default function ProductCard({ product, compact = false }: ProductCardProps) {
   const { addItem, removeItem, isInList, quantities, setQuantity } = useShoppingList()
   const productCategory = product.categoria?.descripcion || product.category || 'Sin categoría'
   const productBrand = product.marca?.descripcion || product.brand || 'Sin marca'
@@ -75,13 +77,17 @@ export default function ProductCard({ product }: ProductCardProps) {
 
   return (
     <Link href={productUrl} className="block">
-      <div className={`bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 group cursor-pointer relative ${
+      <div className={`bg-zinc-900/95 border border-stone-700/80 rounded-xl shadow-lg shadow-black/30 overflow-hidden transition-all duration-300 group cursor-pointer relative ${
         hasStock
           ? 'hover:shadow-xl hover:scale-[1.03] hover:z-50 active:scale-95'
           : 'opacity-75 grayscale-[0.3]'
       }`}>
         {/* Imagen del producto */}
-        <div className="relative aspect-square overflow-hidden">
+        <div
+          className={`relative overflow-hidden bg-zinc-950/40 ${
+            compact ? 'h-32 sm:h-36 md:h-40 shrink-0' : 'aspect-square'
+          }`}
+        >
           <img
             src={product.imagen || product.image || '/placeholder.jpg'}
             alt={product.descripcion || product.name || 'Producto'}
@@ -95,7 +101,7 @@ export default function ProductCard({ product }: ProductCardProps) {
               className={`absolute top-1.5 left-1.5 p-1.5 rounded-full shadow-lg transition-all duration-300 hover:scale-110 z-10 ${
                 isInFavorites
                   ? 'bg-[#ec3036] text-white'
-                  : 'bg-white/90 text-gray-600 hover:bg-white hover:text-[#ec3036]'
+                  : 'bg-stone-900/90 text-stone-400 hover:bg-stone-800 hover:text-[#ec3036]'
               }`}
               title={isInFavorites ? 'Quitar de favoritos' : 'Agregar a favoritos'}
             >
@@ -134,13 +140,13 @@ export default function ProductCard({ product }: ProductCardProps) {
         <div className="p-2">
           {/* Marca */}
           <div className="flex gap-1 mb-1 flex-wrap">
-            <span className="text-xs text-white bg-gradient-to-r from-blue-500 to-blue-600 px-1.5 py-0.5 rounded-full truncate font-semibold shadow-sm">
+            <span className="text-xs text-amber-50 bg-gradient-to-r from-red-950 to-red-900 px-1.5 py-0.5 rounded-full truncate font-semibold shadow-sm">
               {productBrand}
             </span>
           </div>
 
           {/* Título del producto */}
-          <h3 className="text-sm font-semibold text-gray-900 mb-1.5">
+          <h3 className="text-sm font-semibold text-stone-100 mb-1.5">
             {product.descripcion || product.name || 'Sin descripción'}
           </h3>
 
@@ -162,7 +168,7 @@ export default function ProductCard({ product }: ProductCardProps) {
                   <div className="text-2xl font-bold text-green-600">
                     ${formatearPrecio(precioOferta)}
                   </div>
-                  <div className="text-xs text-gray-600 mt-0.5">Precio Oferta</div>
+                  <div className="text-xs text-stone-400 mt-0.5">Precio Oferta</div>
                 </div>
 
                 {/* Precio de promoción */}
@@ -175,10 +181,10 @@ export default function ProductCard({ product }: ProductCardProps) {
                       -{product.promo.descuento_porcentaje}%
                     </span>
                   </div>
-                  <div className="text-xl font-bold text-blue-600">
+                  <div className="text-xl font-bold text-amber-500">
                     ${formatearPrecio(product.precio_con_descuento)}
                   </div>
-                  <div className="text-xs text-gray-600 mt-0.5">{product.promo.nombre}</div>
+                  <div className="text-xs text-stone-400 mt-0.5">{product.promo.nombre}</div>
                 </div>
               </>
             ) : hasDiscount ? (
@@ -198,7 +204,7 @@ export default function ProductCard({ product }: ProductCardProps) {
               </>
             ) : (
               // Sin oferta ni promoción: precio normal
-              <div className="text-xl font-bold text-blue-600">
+              <div className="text-xl font-bold text-amber-500">
                 ${formatearPrecio(productPrice)}
               </div>
             )}
@@ -221,7 +227,7 @@ export default function ProductCard({ product }: ProductCardProps) {
                   ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
                   : 'text-white hover:opacity-90 shadow-md'
               }`}
-              style={hasStock ? { backgroundColor: '#0070bb' } : {}}
+              style={hasStock ? { backgroundColor: 'var(--primary-color, #7f1d1d)' } : {}}
             >
               {!hasStock ? (
                 <>Sin Stock</>
@@ -240,11 +246,11 @@ export default function ProductCard({ product }: ProductCardProps) {
                     setQuantity(product.id, currentQty - 1)
                   }
                 }}
-                className="w-8 h-8 rounded-lg bg-gray-200 hover:bg-gray-300 flex items-center justify-center transition-colors"
+                className="w-8 h-8 rounded-lg bg-stone-700 hover:bg-stone-600 text-stone-100 flex items-center justify-center transition-colors"
               >
                 <Minus className="w-4 h-4" />
               </button>
-              <div className="flex-1 text-center font-semibold text-sm bg-green-100 text-green-700 py-1.5 rounded-xl">
+              <div className="flex-1 text-center font-semibold text-sm bg-emerald-950/60 text-emerald-300 py-1.5 rounded-xl border border-emerald-900/50">
                 <Check className="w-4 h-4 inline mr-1" />
                 {quantities[product.id] || 1} en lista
               </div>
@@ -255,7 +261,7 @@ export default function ProductCard({ product }: ProductCardProps) {
                   const currentQty = quantities[product.id] || 1
                   setQuantity(product.id, currentQty + 1)
                 }}
-                className="w-8 h-8 rounded-lg bg-blue-600 hover:bg-blue-700 text-white flex items-center justify-center transition-colors"
+                className="w-8 h-8 rounded-lg bg-red-900 hover:bg-red-800 text-amber-50 flex items-center justify-center transition-colors"
               >
                 <Plus className="w-4 h-4" />
               </button>

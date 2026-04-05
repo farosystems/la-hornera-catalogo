@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useMemo } from "react"
 import { use } from "react"
-import { ArrowLeft, Package, CheckCircle, Star, Truck, Shield, CreditCard, Users, Tag } from "lucide-react"
+import { ArrowLeft, Package, Star, Tag } from "lucide-react"
 import { useRouter } from "next/navigation"
 import GlobalAppBar from "@/components/GlobalAppBar"
 import Footer from "@/components/Footer"
@@ -73,12 +73,12 @@ export default function ProductVariosPageClient({ params }: ProductVariosPageCli
 
   if (loading) {
     return (
-      <div className="bg-gradient-to-br from-gray-50 to-blue-50 min-h-screen">
+      <div className="bg-gradient-to-br from-zinc-950 via-stone-950 to-zinc-950 min-h-screen">
         <GlobalAppBar />
         <div className="flex items-center justify-center py-20" style={{ marginTop: '140px' }}>
           <div className="text-center">
-            <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-violet-600 mx-auto mb-4"></div>
-            <h2 className="text-2xl font-bold text-gray-900">Cargando producto...</h2>
+            <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-red-800 mx-auto mb-4"></div>
+            <h2 className="text-2xl font-bold text-stone-100">Cargando producto...</h2>
           </div>
         </div>
         <Footer />
@@ -88,16 +88,16 @@ export default function ProductVariosPageClient({ params }: ProductVariosPageCli
 
   if (error || !product) {
     return (
-      <div className="bg-gradient-to-br from-gray-50 to-blue-50 min-h-screen">
+      <div className="bg-gradient-to-br from-zinc-950 via-stone-950 to-zinc-950 min-h-screen">
         <GlobalAppBar />
         <div className="flex items-center justify-center py-20" style={{ marginTop: '140px' }}>
           <div className="text-center">
             <Package size={64} className="mx-auto mb-4 text-gray-300" />
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Producto no encontrado</h2>
+            <h2 className="text-2xl font-bold text-stone-100 mb-4">Producto no encontrado</h2>
             <p className="text-xl text-gray-600 mb-6">{error || 'El producto no existe'}</p>
             <button
               onClick={handleBackToHome}
-              className="px-6 py-3 bg-emerald-600 text-white rounded-lg hover:bg-violet-700 transition-colors"
+              className="px-6 py-3 bg-red-900 text-amber-50 rounded-lg hover:bg-red-800 transition-colors"
             >
               Volver al inicio
             </button>
@@ -131,7 +131,7 @@ export default function ProductVariosPageClient({ params }: ProductVariosPageCli
   console.log('🔍 Array de imágenes que se pasa al componente:', product.imagenes || [product.imagen] || [])
 
   return (
-    <div className="bg-gradient-to-br from-gray-50 to-blue-50 min-h-screen">
+    <div className="bg-gradient-to-br from-zinc-950 via-stone-950 to-zinc-950 min-h-screen">
       <GlobalAppBar />
       
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16 py-4" style={{ marginTop: '30px' }}>
@@ -143,7 +143,7 @@ export default function ProductVariosPageClient({ params }: ProductVariosPageCli
             <div className="flex justify-between items-center mb-4">
               <button
                 onClick={handleBackToHome}
-                className="inline-flex items-center text-emerald-600 hover:text-violet-700 transition-colors"
+                className="inline-flex items-center text-amber-600 hover:text-red-700 transition-colors"
               >
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Volver al inicio
@@ -171,12 +171,12 @@ export default function ProductVariosPageClient({ params }: ProductVariosPageCli
               {/* Categoría y Marca */}
               <div className="flex gap-2 mb-3">
                 {product.categoria && (
-                  <span className="text-xs text-emerald-600 bg-emerald-100 px-2 py-1 rounded-full uppercase">
+                  <span className="text-xs text-amber-600 bg-red-950/50 px-2 py-1 rounded-full uppercase">
                     {product.categoria.descripcion}
                   </span>
                 )}
                 {product.marca && (
-                  <span className="text-xs text-blue-600 bg-blue-100 px-2 py-1 rounded-full uppercase">
+                  <span className="text-xs text-amber-600 bg-red-950/50 px-2 py-1 rounded-full uppercase">
                     {product.marca.descripcion}
                   </span>
                 )}
@@ -193,7 +193,7 @@ export default function ProductVariosPageClient({ params }: ProductVariosPageCli
                 </div>
               )}
               
-              <h1 className="text-xl sm:text-2xl font-bold text-gray-900 mb-0 uppercase">
+              <h1 className="text-xl sm:text-2xl font-bold text-stone-100 mb-0 uppercase">
                 {product.descripcion}
               </h1>
             </div>
@@ -204,12 +204,12 @@ export default function ProductVariosPageClient({ params }: ProductVariosPageCli
             {/* Categoría y Marca - solo desktop */}
             <div className="hidden lg:flex gap-2 mb-4">
               {product.categoria && (
-                <span className="text-xs text-emerald-600 bg-emerald-100 px-2 py-1 rounded-full uppercase">
+                <span className="text-xs text-amber-600 bg-red-950/50 px-2 py-1 rounded-full uppercase">
                   {product.categoria.descripcion}
                 </span>
               )}
               {product.marca && (
-                <span className="text-xs text-blue-600 bg-blue-100 px-2 py-1 rounded-full uppercase">
+                <span className="text-xs text-amber-600 bg-red-950/50 px-2 py-1 rounded-full uppercase">
                   {product.marca.descripcion}
                 </span>
               )}
@@ -226,17 +226,17 @@ export default function ProductVariosPageClient({ params }: ProductVariosPageCli
               </div>
             )}
             
-            <h1 className="hidden lg:block text-3xl font-bold text-gray-900 mb-4 uppercase">
+            <h1 className="hidden lg:block text-3xl font-bold text-stone-100 mb-4 uppercase">
               {product.descripcion}
             </h1>
 
             {/* Precio del producto - Siempre visible */}
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-5 mb-4 shadow-md border border-blue-200">
+            <div className="bg-gradient-to-br from-zinc-900 to-stone-900 rounded-xl p-5 mb-4 shadow-md border border-stone-700">
               {hasOferta && hasPromo ? (
                 // Tiene AMBOS: oferta individual Y promoción
                 <>
                   {/* Precio de oferta */}
-                  <div className="mb-4 pb-4 border-b border-blue-300">
+                  <div className="mb-4 pb-4 border-b border-stone-600">
                     <div className="flex items-center gap-2 mb-3">
                       <Tag className="w-5 h-5 text-red-600" />
                       <span className="text-sm font-bold text-red-600 uppercase">
@@ -271,12 +271,12 @@ export default function ProductVariosPageClient({ params }: ProductVariosPageCli
                       <span className="text-xl font-bold text-orange-600 line-through decoration-4">
                         ${formatearPrecio(product.precio || 0)}
                       </span>
-                      <span className="text-4xl font-bold text-blue-600">
+                      <span className="text-4xl font-bold text-amber-500">
                         ${formatearPrecio(product.precio_con_descuento!)}
                       </span>
                     </div>
                     {product.promo!.descripcion && (
-                      <p className="text-sm text-gray-700 mt-3 bg-white/50 rounded p-2">{product.promo!.descripcion}</p>
+                      <p className="text-sm text-stone-300 mt-3 bg-stone-900/70 rounded p-2 border border-stone-700/80">{product.promo!.descripcion}</p>
                     )}
                   </div>
                 </>
@@ -301,14 +301,14 @@ export default function ProductVariosPageClient({ params }: ProductVariosPageCli
                     </span>
                   </div>
                   {hasPromo && product.promo!.descripcion && (
-                    <p className="text-sm text-gray-700 mt-3 bg-white/50 rounded p-2">{product.promo!.descripcion}</p>
+                    <p className="text-sm text-stone-300 mt-3 bg-stone-900/70 rounded p-2 border border-stone-700/80">{product.promo!.descripcion}</p>
                   )}
                 </>
               ) : (
                 // Sin oferta ni promoción
                 <div className="flex items-center gap-3">
-                  <span className="text-lg font-semibold text-blue-700">Precio:</span>
-                  <span className="text-5xl font-bold text-blue-600">
+                  <span className="text-lg font-semibold text-amber-600">Precio:</span>
+                  <span className="text-5xl font-bold text-amber-500">
                     ${formatearPrecio(product.precio || 0)}
                   </span>
                 </div>
@@ -332,9 +332,9 @@ export default function ProductVariosPageClient({ params }: ProductVariosPageCli
             {/* Características adicionales */}
             {product.caracteristicas && (
               <div className="mb-8">
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">Características</h2>
-                <div className="bg-white rounded-lg p-6 shadow-sm">
-                  <div className="text-gray-700 leading-relaxed whitespace-pre-line">
+                <h2 className="text-2xl font-bold text-stone-100 mb-4">Características</h2>
+                <div className="bg-zinc-900/90 border border-stone-700 rounded-lg p-6 shadow-sm">
+                  <div className="text-stone-300 leading-relaxed whitespace-pre-line">
                     {product.caracteristicas}
                   </div>
                 </div>
@@ -345,8 +345,8 @@ export default function ProductVariosPageClient({ params }: ProductVariosPageCli
 
         {/* Descripción del Producto (sección separada) */}
         <div className="mb-4">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">Descripción del Producto</h2>
-          <div className="bg-white rounded-lg p-8 shadow-sm max-w-4xl mx-auto">
+          <h2 className="text-2xl font-bold text-stone-100 mb-6 text-center">Descripción del Producto</h2>
+          <div className="bg-zinc-900/90 border border-stone-700 rounded-lg p-8 shadow-sm max-w-4xl mx-auto">
             <FormattedProductDescription description={productDescription} />
           </div>
         </div>
@@ -355,7 +355,7 @@ export default function ProductVariosPageClient({ params }: ProductVariosPageCli
         {relatedProducts.length > 0 && (
           <div className="mb-16 mt-12">
             <div className="text-center mb-12">
-              <h2 className="text-xl sm:text-3xl font-bold text-gray-900 mb-4">
+              <h2 className="text-xl sm:text-3xl font-bold text-stone-100 mb-4">
                 Productos que te pueden interesar
               </h2>
               <p className="text-xs md:text-sm text-gray-600">
@@ -370,9 +370,9 @@ export default function ProductVariosPageClient({ params }: ProductVariosPageCli
                   {relatedProducts.map((relatedProduct) => (
                     <div
                       key={relatedProduct.id}
-                      className="flex-shrink-0 w-64"
+                      className="flex-shrink-0 w-52 sm:w-56"
                     >
-                      <ProductCard product={relatedProduct} />
+                      <ProductCard product={relatedProduct} compact />
                     </div>
                   ))}
                 </div>
@@ -381,10 +381,10 @@ export default function ProductVariosPageClient({ params }: ProductVariosPageCli
 
             {/* Grid para desktop */}
             <div className="hidden md:block">
-              <div className="grid grid-cols-3 gap-8 p-4">
+              <div className="grid grid-cols-3 gap-4 lg:gap-6 p-4 max-w-5xl mx-auto">
                 {relatedProducts.slice(0, 3).map((relatedProduct) => (
                   <div key={relatedProduct.id} className="animate-fade-in-up">
-                    <ProductCard product={relatedProduct} />
+                    <ProductCard product={relatedProduct} compact />
                   </div>
                 ))}
               </div>
@@ -394,7 +394,7 @@ export default function ProductVariosPageClient({ params }: ProductVariosPageCli
             <div className="text-center mt-8">
               <button
                 onClick={handleBackToHome}
-                className="inline-flex items-center px-8 py-4 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                className="inline-flex items-center px-8 py-4 bg-red-900 text-amber-50 font-semibold rounded-xl hover:bg-red-800 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
               >
                 Ver más productos
                 <ArrowLeft className="ml-2 w-5 h-5 rotate-180" />
@@ -402,49 +402,6 @@ export default function ProductVariosPageClient({ params }: ProductVariosPageCli
             </div>
           </div>
         )}
-
-        {/* Sección "Por qué elegirnos" */}
-        <div className="mb-4 bg-gray-50 py-2 sm:py-8">
-          <div className="text-center mb-3 sm:mb-12">
-            <h2 className="text-xl sm:text-3xl font-bold text-gray-900 mb-2 sm:mb-4">
-              ¿Por qué elegir La Hornera?
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 max-w-6xl mx-auto">
-            {/* Envío gratis */}
-            <div className="bg-white rounded-xl p-4 sm:p-6 shadow-lg text-center hover:shadow-xl transition-shadow">
-              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Truck className="w-8 h-8 text-blue-600" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900">Envío Gratis</h3>
-            </div>
-
-            {/* Garantía oficial */}
-            <div className="bg-white rounded-xl p-4 sm:p-6 shadow-lg text-center hover:shadow-xl transition-shadow">
-              <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Shield className="w-8 h-8 text-green-600" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900">Garantía Oficial</h3>
-            </div>
-
-            {/* Financiación flexible */}
-            <div className="bg-white rounded-xl p-4 sm:p-6 shadow-lg text-center hover:shadow-xl transition-shadow">
-              <div className="bg-emerald-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <CreditCard className="w-8 h-8 text-emerald-600" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900">Financiación Flexible</h3>
-            </div>
-
-            {/* Atención personalizada */}
-            <div className="bg-white rounded-xl p-4 sm:p-6 shadow-lg text-center hover:shadow-xl transition-shadow">
-              <div className="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Users className="w-8 h-8 text-orange-600" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900">Atención Personalizada</h3>
-            </div>
-          </div>
-        </div>
       </div>
       <Footer />
     </div>

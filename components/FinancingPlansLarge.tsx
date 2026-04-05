@@ -108,8 +108,8 @@ const FinancingPlansLarge = memo(function FinancingPlansLarge({ productoId, prec
 
   if (loading) {
     return (
-      <div className="mt-3 p-2 bg-gray-50 rounded">
-        <div className="animate-pulse h-4 bg-gray-200 rounded"></div>
+      <div className="mt-3 p-2 bg-zinc-900/80 rounded border border-stone-800">
+        <div className="animate-pulse h-4 bg-stone-700 rounded"></div>
       </div>
     )
   }
@@ -132,14 +132,14 @@ const FinancingPlansLarge = memo(function FinancingPlansLarge({ productoId, prec
     }
   }
 
-  const colores = ['bg-blue-100 text-blue-800', 'bg-green-100 text-green-800', 'bg-emerald-100 text-emerald-800', 'bg-orange-100 text-orange-800']
+  const colores = ['bg-red-950/50 text-amber-200', 'bg-stone-800 text-stone-200', 'bg-amber-950/40 text-amber-100', 'bg-orange-950/40 text-orange-200']
 
   return (
-    <div className={`bg-white rounded-lg p-4 sm:p-6 shadow-sm transition-all duration-300 ${
+    <div className={`bg-zinc-900/90 border border-stone-700 rounded-lg p-4 sm:p-6 shadow-sm transition-all duration-300 ${
       !hasStock ? 'opacity-50 grayscale' : ''
     }`}>
       <div className="flex items-center gap-2 mb-1 sm:mb-2">
-        <h3 className="text-lg sm:text-xl font-bold text-gray-900">Planes de Financiación</h3>
+        <h3 className="text-lg sm:text-xl font-bold text-stone-100">Planes de Financiación</h3>
         {!hasStock && (
           <span className="text-xs text-red-600 bg-red-100 px-2 py-1 rounded-full font-semibold">
             NO DISPONIBLE
@@ -147,11 +147,11 @@ const FinancingPlansLarge = memo(function FinancingPlansLarge({ productoId, prec
         )}
       </div>
 
-      <p className="text-xs text-blue-600 font-semibold mb-3">Seleccioná el plan de pago:</p>
+      <p className="text-xs text-amber-500/90 font-semibold mb-3">Seleccioná el plan de pago:</p>
 
       {/* Información de debug */}
       {showDebug && (
-        <div className="text-xs text-gray-500 mb-2 p-2 bg-gray-100 rounded">
+        <div className="text-xs text-stone-500 mb-2 p-2 bg-zinc-900 rounded border border-stone-800">
           <strong>Tipo de planes:</strong> {getTipoPlanesText(tipoPlanes)} | <strong>Total:</strong> {planes.length} planes
         </div>
       )}
@@ -173,7 +173,7 @@ const FinancingPlansLarge = memo(function FinancingPlansLarge({ productoId, prec
           const isSelected = planActual?.planId === plan.id
 
           const baseClass = esContado ? 'bg-red-100 text-red-800' : colores[index % colores.length]
-          const selectedClass = 'ring-2 ring-blue-500 bg-blue-200 text-blue-900'
+          const selectedClass = 'ring-2 ring-amber-600 bg-red-950/70 text-amber-100'
 
           return (
             <button
@@ -211,7 +211,7 @@ const FinancingPlansLarge = memo(function FinancingPlansLarge({ productoId, prec
                 </div>
               )}
               {isSelected && (
-                <div className="text-xs sm:text-sm mt-1 font-semibold text-blue-700">✓ Seleccionado</div>
+                <div className="text-xs sm:text-sm mt-1 font-semibold text-amber-400">✓ Seleccionado</div>
               )}
             </button>
           )
