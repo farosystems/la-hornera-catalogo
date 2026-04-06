@@ -325,8 +325,8 @@ export default function ProductPageClient({ params }: ProductPageClientProps) {
               {product.descripcion}
             </h1>
 
-            {/* Precio del producto - Siempre visible */}
-            <div className="bg-gradient-to-br from-zinc-900 to-stone-900 rounded-xl p-5 mb-4 shadow-md border border-stone-700">
+            {/* Precio del producto — solo desktop (móvil: bloque bajo la galería) */}
+            <div className="hidden lg:block bg-gradient-to-br from-zinc-900 to-stone-900 rounded-xl p-5 mb-4 shadow-md border border-stone-700">
               {hasOferta && hasPromo ? (
                 // Tiene AMBOS: oferta individual Y promoción
                 <>
