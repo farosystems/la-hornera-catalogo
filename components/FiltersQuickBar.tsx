@@ -48,7 +48,7 @@ export default function FiltersQuickBar() {
   }
 
   const btnClass = (active: boolean) =>
-    `inline-flex items-center justify-center gap-2 rounded-xl border px-4 py-2.5 text-sm font-semibold transition-colors sm:px-5 sm:text-base ${
+    `inline-flex items-center justify-center gap-1.5 rounded-lg border px-3 py-2 text-sm font-semibold transition-colors sm:px-4 sm:text-[15px] ${
       active
         ? 'border-amber-600/60 bg-red-950/70 text-amber-100 shadow-inner'
         : 'border-stone-600/80 bg-zinc-900/90 text-stone-100 hover:border-red-900/70 hover:bg-stone-800/80'
@@ -56,10 +56,10 @@ export default function FiltersQuickBar() {
 
   if (loading) {
     return (
-      <div className="border-t border-red-950/40 py-2">
-        <div className="mx-auto grid w-full max-w-lg grid-cols-2 gap-2 px-3 sm:gap-3 sm:px-4">
-          <div className="h-10 rounded-xl bg-stone-800/50 animate-pulse" />
-          <div className="h-10 rounded-xl bg-stone-800/50 animate-pulse" />
+      <div className="border-t border-red-950/40 py-1.5">
+        <div className="mx-auto grid w-full max-w-lg grid-cols-2 gap-1.5 px-2 sm:gap-2 sm:px-3">
+          <div className="h-9 rounded-lg bg-stone-800/50 animate-pulse" />
+          <div className="h-9 rounded-lg bg-stone-800/50 animate-pulse" />
         </div>
       </div>
     )
@@ -67,8 +67,8 @@ export default function FiltersQuickBar() {
 
   return (
     <div className="border-t border-red-950/40 bg-zinc-950/50">
-      <div className="py-2 sm:py-2.5">
-        <div className="mx-auto grid w-full max-w-lg grid-cols-2 gap-2 px-3 sm:max-w-xl sm:gap-3 sm:px-4">
+      <div className="py-1.5 sm:py-2">
+        <div className="mx-auto grid w-full max-w-lg grid-cols-2 gap-1.5 px-2 sm:max-w-xl sm:gap-2 sm:px-3">
           <button
             type="button"
             onClick={() => toggleSection('categoria')}

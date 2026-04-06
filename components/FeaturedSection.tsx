@@ -77,7 +77,7 @@ export default function FeaturedSection() {
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: "url('/cerveza.jpg')"
+          backgroundImage: "url('/9.png')"
         }}
       >
         {/* Velado más claro para que se vea la foto; las cards traen su propio fondo */}

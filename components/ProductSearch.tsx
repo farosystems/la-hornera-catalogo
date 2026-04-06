@@ -10,9 +10,12 @@ import { formatearPrecio } from '@/lib/supabase-products'
 
 interface ProductSearchProps {
   className?: string
+  /** Barra blanca + botón buscar ámbar (header tipo e-commerce) */
+  variant?: 'default' | 'prominent'
 }
 
-function ProductSearchContent({ className = '' }: ProductSearchProps) {
+function ProductSearchContent({ className = '', variant = 'default' }: ProductSearchProps) {
+  const prominent = variant === 'prominent'
   const pathname = usePathname()
   const searchParams = useSearchParams()
   const [searchTerm, setSearchTerm] = useState('')
@@ -134,6 +137,12 @@ function ProductSearchContent({ className = '' }: ProductSearchProps) {
     }
   }
 
+  const inputClass = prominent
+    ? `w-full pl-9 py-2 sm:py-2 text-sm sm:text-[15px] bg-white border border-stone-300 rounded-lg text-zinc-900 placeholder-stone-500 shadow-sm focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition-all duration-300 ${
+        searchTerm ? 'pr-24 sm:pr-28' : 'pr-[3.25rem] sm:pr-[3.5rem]'
+      }`
+    : 'w-full pl-12 pr-12 py-3 bg-zinc-900/95 backdrop-blur-sm border border-stone-600 rounded-full text-stone-100 placeholder-stone-500 focus:outline-none focus:ring-2 focus:ring-red-800 focus:border-transparent transition-all duration-300'
+
   return (
     <div ref={searchRef} className={`relative ${className}`}>
       {/* Barra de búsqueda */}
@@ -155,21 +164,51 @@ function ProductSearchContent({ className = '' }: ProductSearchProps) {
               }
             }}
             placeholder="Buscar productos y combos..."
-            className="w-full pl-12 pr-12 py-3 bg-zinc-900/95 backdrop-blur-sm border border-stone-600 rounded-full text-stone-100 placeholder-stone-500 focus:outline-none focus:ring-2 focus:ring-red-800 focus:border-transparent transition-all duration-300"
+            className={inputClass}
           />
-          <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-stone-400 size-5 pointer-events-none" />
-          {searchTerm && (
-            <button
-              type="button"
-              onClick={() => {
-                setSearchTerm('')
-                setIsSearchOpen(false)
-                inputRef.current?.focus()
-              }}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 text-stone-400 hover:text-stone-200 transition-colors"
-            >
-              <X className="size-5" />
-            </button>
+          <Search
+            className={`absolute top-1/2 transform -translate-y-1/2 pointer-events-none ${
+              prominent ? 'left-2.5 size-[18px] text-amber-600' : 'left-4 size-5 text-stone-400'
+            }`}
+          />
+          {prominent ? (
+            <div className="absolute right-1.5 top-1/2 flex -translate-y-1/2 items-center gap-1">
+              {searchTerm && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSearchTerm('')
+                    setIsSearchOpen(false)
+                    inputRef.current?.focus()
+                  }}
+                  className="rounded-md p-1 text-stone-500 hover:bg-stone-100 hover:text-zinc-800 transition-colors"
+                  aria-label="Limpiar búsqueda"
+                >
+                  <X className="size-4" />
+                </button>
+              )}
+              <button
+                type="submit"
+                className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-amber-500 text-white shadow-sm transition-colors hover:bg-amber-600"
+                aria-label="Buscar"
+              >
+                <Search className="size-[17px]" strokeWidth={2.5} />
+              </button>
+            </div>
+          ) : (
+            searchTerm && (
+              <button
+                type="button"
+                onClick={() => {
+                  setSearchTerm('')
+                  setIsSearchOpen(false)
+                  inputRef.current?.focus()
+                }}
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 text-stone-400 hover:text-stone-200 transition-colors"
+              >
+                <X className="size-5" />
+              </button>
+            )
           )}
         </div>
       </form>
@@ -428,7 +467,11 @@ function ComboFinancingPrices({ combo }: { combo: any }) {
 }
 
 // Componente principal con Suspense
-export default function ProductSearch({ className = '' }: ProductSearchProps) {
+export default function ProductSearch({ className = '', variant = 'default' }: ProductSearchProps) {
+  const prominent = variant === 'prominent'
+  const fallbackInputClass = prominent
+    ? 'w-full pl-9 pr-[3.25rem] py-2 sm:py-2 text-sm bg-white border border-stone-300 rounded-lg text-stone-400 placeholder-stone-500 opacity-60 cursor-not-allowed'
+    : 'w-full pl-12 pr-12 py-3 bg-zinc-900/80 backdrop-blur-sm border border-stone-700 rounded-full text-stone-400 placeholder-stone-600 opacity-50 cursor-not-allowed'
   return (
     <Suspense fallback={
       <div className={`relative ${className}`}>
@@ -437,13 +480,16 @@ export default function ProductSearch({ className = '' }: ProductSearchProps) {
             type="text"
             placeholder="Buscar productos..."
             disabled
-            className="w-full pl-12 pr-12 py-3 bg-zinc-900/80 backdrop-blur-sm border border-stone-700 rounded-full text-stone-400 placeholder-stone-600 opacity-50 cursor-not-allowed"
+            className={fallbackInputClass}
           />
-          <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-stone-400 size-5 pointer-events-none" />
+          <Search className={`absolute top-1/2 transform -translate-y-1/2 pointer-events-none ${prominent ? 'left-2.5 size-[18px] text-amber-600 opacity-60' : 'left-4 size-5 text-stone-400'}`} />
+          {prominent && (
+            <span className="absolute right-1.5 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-md bg-amber-500/50" aria-hidden />
+          )}
         </div>
       </div>
     }>
-      <ProductSearchContent className={className} />
+      <ProductSearchContent className={className} variant={variant} />
     </Suspense>
   )
 }

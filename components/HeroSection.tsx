@@ -19,7 +19,7 @@ export default function HeroSection() {
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: "url('/cerveza.jpg')"
+          backgroundImage: "url('/9.png')"
         }}
       >
         {/* Velado suave: la imagen se ve más; el texto sigue legible */}

@@ -15,7 +15,8 @@ export const metadata: Metadata = {
   keywords: "cerveza artesanal, cerveza premium, IPA, lager, cuotas, financiación, craft beer",
   generator: 'v0.dev',
   icons: {
-    icon: '/LOGO2.png',
+    icon: '/4.png',
+    apple: '/4.png',
   },
   metadataBase: new URL('https://lahornera-catalogo.vercel.app'),
   openGraph: {
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
     description: 'ESPACIO CERVECERO con los mejores planes de financiación. Cervezas premium, artesanales, IPA, lager y más.',
     images: [
       {
-        url: '/LOGO2.png?v=2',
+        url: '/4.png?v=2',
         width: 400,
         height: 200,
         alt: 'La Hornera - Cervecería Artesanal',
@@ -38,7 +39,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'La Hornera - Cervecería Artesanal',
     description: 'ESPACIO CERVECERO con los mejores planes de financiación. Cervezas premium, artesanales, IPA, lager y más.',
-    images: ['/LOGO2.png?v=2'],
+    images: ['/4.png?v=2'],
   },
 }
 

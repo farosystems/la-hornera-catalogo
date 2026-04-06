@@ -1,30 +1,19 @@
 'use client'
 
 import Link from "next/link"
+import { useState } from "react"
 import { Package, Zap, MapPin, Clock } from "lucide-react"
-import { useConfiguracionWebContext } from '@/contexts/ConfiguracionWebContext'
-import { useIsMobile } from '@/hooks/use-mobile'
+
+const FOOTER_LOGO = '/4.png'
+const FOOTER_LOGO_FALLBACK = '/LOGO2.png'
 
 export default function Footer() {
-  const { configuracion } = useConfiguracionWebContext()
-  const isMobile = useIsMobile()
-  
+  const [footerLogoSrc, setFooterLogoSrc] = useState(FOOTER_LOGO)
+
   const scrollToProducts = () => {
     const productsSection = document.getElementById('productos')
     if (productsSection) {
       productsSection.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
-
-  const getLogoSize = () => {
-    if (!configuracion) return { width: isMobile ? 40 : 48, height: isMobile ? 30 : 36 }
-    const baseWidth = isMobile ? configuracion.mobile_logo_width : configuracion.logo_width
-    const baseHeight = isMobile ? configuracion.mobile_logo_height : configuracion.logo_height
-    
-    // Reducimos el tamaño para el footer (aproximadamente 25% del tamaño original)
-    return {
-      width: Math.round(baseWidth * 0.25),
-      height: Math.round(baseHeight * 0.25)
     }
   }
 
@@ -36,24 +25,16 @@ export default function Footer() {
 
           {/* Columna 1: La Hornera */}
           <div className="space-y-4">
-            <div className="flex items-center space-x-3">
-              {configuracion?.logo_url ? (
-                <img
-                  src={configuracion.logo_url}
-                  alt="Logo"
-                  style={{
-                    width: `${getLogoSize().width}px`,
-                    height: `${getLogoSize().height}px`,
-                    objectFit: 'contain'
-                  }}
-                />
-              ) : (
-                <img
-                  src="/LOGO2.png"
-                  alt="La Hornera"
-                  className="h-12 w-auto"
-                />
-              )}
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={footerLogoSrc}
+                alt="La Hornera"
+                width={400}
+                height={160}
+                className="h-24 w-auto shrink-0 object-contain object-left sm:h-28 md:h-32 lg:h-36 max-w-[min(100%,360px)]"
+                onError={() => setFooterLogoSrc(FOOTER_LOGO_FALLBACK)}
+              />
               <div>
                 <h3 className="text-xl font-bold">La Hornera</h3>
                 <p className="text-amber-200/80 text-sm">ESPACIO CERVECERO</p>
