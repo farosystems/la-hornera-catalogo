@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { Plus, Check, Minus } from 'lucide-react'
 import { useShoppingList } from '@/hooks/use-shopping-list'
 import { Product } from '@/lib/products'
+import { ctaPrimaryButtonClasses } from '@/lib/cta-button-classes'
 
 interface AddToListButtonProps {
   product: Product
@@ -31,12 +32,12 @@ export default function AddToListButton({ product, variant = 'card' }: AddToList
         <button
           onClick={handleAddToList}
           disabled={isAdding || !hasStock}
-          className={`w-full py-1.5 px-3 rounded-xl font-semibold transition-all duration-300 text-sm flex items-center justify-center gap-2 ${
+          className={`w-full py-1.5 px-3 font-semibold transition-all duration-300 text-sm flex items-center justify-center gap-2 ${
             !hasStock
-              ? 'bg-red-500 text-white cursor-not-allowed border-2 border-red-600 shadow-lg font-bold uppercase tracking-wide'
+              ? 'rounded-xl bg-red-500 text-white cursor-not-allowed border-2 border-red-600 shadow-lg font-bold uppercase tracking-wide'
               : isAdding
-              ? 'bg-emerald-100 text-emerald-700 cursor-not-allowed'
-              : 'bg-amber-400 text-zinc-900 hover:bg-amber-300 hover:scale-105 shadow-lg hover:shadow-xl'
+              ? 'rounded-xl bg-emerald-100 text-emerald-700 cursor-not-allowed'
+              : ctaPrimaryButtonClasses
           }`}
           title={!hasStock ? 'Sin stock' : 'Agregar a lista de compra'}
         >
@@ -85,12 +86,12 @@ export default function AddToListButton({ product, variant = 'card' }: AddToList
       <button
         onClick={handleAddToList}
         disabled={isAdding || !hasStock}
-        className={`w-full py-2 px-4 rounded-xl font-semibold transition-all duration-300 text-base shadow-md flex items-center justify-center gap-2 ${
+        className={`w-full py-2 px-4 font-semibold transition-all duration-300 text-base flex items-center justify-center gap-2 ${
           !hasStock
-            ? 'bg-red-500 text-white cursor-not-allowed border-2 border-red-600 shadow-lg font-bold uppercase tracking-wide text-lg py-3'
+            ? 'rounded-xl bg-red-500 text-white cursor-not-allowed border-2 border-red-600 shadow-lg font-bold uppercase tracking-wide text-lg py-3'
             : isAdding
-            ? 'bg-emerald-100 text-emerald-700 cursor-not-allowed'
-            : 'bg-amber-400 text-zinc-900 hover:bg-amber-300 hover:scale-102 hover:shadow-lg'
+            ? 'rounded-xl bg-emerald-100 text-emerald-700 cursor-not-allowed'
+            : ctaPrimaryButtonClasses
         }`}
         title={!hasStock ? 'Sin stock' : 'Agregar a lista de compra'}
       >

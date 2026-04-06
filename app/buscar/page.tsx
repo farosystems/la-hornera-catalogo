@@ -9,6 +9,7 @@ import ProductCard from "@/components/ProductCard"
 import ComboCard from "@/components/ComboCard"
 import { useProducts } from "@/hooks/use-products"
 import { searchCombos } from "@/lib/supabase-products"
+import { ctaPrimaryButtonClasses } from "@/lib/cta-button-classes"
 
 function BuscarPageContent() {
   const searchParams = useSearchParams()
@@ -283,7 +284,7 @@ function BuscarPageContent() {
                   </p>
                   <button
                     onClick={handleClearFilters}
-                    className="px-6 py-3 bg-red-900 text-amber-50 rounded-lg hover:bg-red-800 transition-colors"
+                    className={`inline-flex items-center px-6 py-3 ${ctaPrimaryButtonClasses}`}
                   >
                     Nueva búsqueda
                   </button>

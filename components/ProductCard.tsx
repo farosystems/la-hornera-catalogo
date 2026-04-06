@@ -6,6 +6,7 @@ import { Product } from "@/lib/products"
 import FinancingPlans from "./FinancingPlans"
 import { useShoppingList } from "@/hooks/use-shopping-list"
 import { formatearPrecio, isOfertaVigente } from "@/lib/supabase-products"
+import { ctaPrimaryButtonClasses } from "@/lib/cta-button-classes"
 
 interface ProductCardProps {
   product: Product
@@ -222,10 +223,10 @@ export default function ProductCard({ product, compact = false }: ProductCardPro
                 addItem(product)
               }}
               disabled={!hasStock}
-              className={`w-full mt-2 py-1.5 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 transition-all duration-300 ${
+              className={`w-full mt-2 py-1.5 font-semibold text-sm flex items-center justify-center gap-2 transition-all duration-300 ${
                 !hasStock
-                  ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                  : 'bg-amber-400 text-zinc-900 hover:bg-amber-300 shadow-md'
+                  ? 'rounded-xl bg-gray-200 text-gray-400 cursor-not-allowed'
+                  : ctaPrimaryButtonClasses
               }`}
             >
               {!hasStock ? (

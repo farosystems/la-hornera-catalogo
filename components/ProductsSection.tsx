@@ -6,6 +6,7 @@ import FilterBar from "./FilterBar"
 import Pagination from "./Pagination"
 import { useProducts } from "@/hooks/use-products"
 import { debugPriceRangeIssue, debugActiveFilters } from "@/lib/debug-price-range"
+import { ctaPrimaryButtonClasses } from "@/lib/cta-button-classes"
 
 const PRODUCTS_PER_PAGE = 3
 
@@ -231,7 +232,7 @@ export default function ProductsSection() {
                 <p className="text-stone-500 text-lg">No se encontraron productos que coincidan con los filtros.</p>
                 <button
                   onClick={handleClearFilters}
-                  className="mt-4 px-6 py-2 bg-red-900 text-amber-50 rounded-xl hover:bg-red-800 transition-colors duration-300"
+                  className={`mt-4 inline-flex items-center px-6 py-2 ${ctaPrimaryButtonClasses}`}
                 >
                   Limpiar filtros
                 </button>

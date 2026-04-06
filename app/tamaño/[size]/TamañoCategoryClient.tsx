@@ -7,6 +7,7 @@ import GlobalAppBar from '@/components/GlobalAppBar'
 import Footer from '@/components/Footer'
 import ProductCard from '@/components/ProductCard'
 import { useProducts } from '@/hooks/use-products'
+import { ctaPrimaryButtonClasses } from '@/lib/cta-button-classes'
 
 interface TamañoCategoryClientProps {
   params: Promise<{
@@ -77,7 +78,7 @@ export default function TamañoCategoryClient({ params }: TamañoCategoryClientP
             </p>
             <button
               onClick={handleBack}
-              className="px-6 py-3 bg-red-900 text-amber-50 rounded-lg hover:bg-red-800 transition-colors"
+              className={`inline-flex items-center px-6 py-3 ${ctaPrimaryButtonClasses}`}
             >
               Volver al inicio
             </button>

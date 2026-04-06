@@ -14,6 +14,7 @@ import FormattedProductDescription from "@/components/FormattedProductDescriptio
 import WhatsAppButton from "@/components/WhatsAppButton"
 import { useProducts } from "@/hooks/use-products"
 import { getProductById, formatearPrecio, isOfertaVigente } from "@/lib/supabase-products"
+import { ctaPrimaryButtonClasses } from "@/lib/cta-button-classes"
 
 interface ProductVariosPageClientProps {
   params: Promise<{
@@ -97,7 +98,7 @@ export default function ProductVariosPageClient({ params }: ProductVariosPageCli
             <p className="text-xl text-gray-600 mb-6">{error || 'El producto no existe'}</p>
             <button
               onClick={handleBackToHome}
-              className="px-6 py-3 bg-red-900 text-amber-50 rounded-lg hover:bg-red-800 transition-colors"
+              className={`inline-flex items-center px-6 py-3 ${ctaPrimaryButtonClasses}`}
             >
               Volver al inicio
             </button>
@@ -394,7 +395,7 @@ export default function ProductVariosPageClient({ params }: ProductVariosPageCli
             <div className="text-center mt-8">
               <button
                 onClick={handleBackToHome}
-                className="inline-flex items-center px-8 py-4 bg-red-900 text-amber-50 font-semibold rounded-xl hover:bg-red-800 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                className={`inline-flex items-center px-8 py-4 ${ctaPrimaryButtonClasses}`}
               >
                 Ver más productos
                 <ArrowLeft className="ml-2 w-5 h-5 rotate-180" />

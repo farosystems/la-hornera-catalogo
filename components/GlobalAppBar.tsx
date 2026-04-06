@@ -8,6 +8,7 @@ import ShoppingListModal from "./ShoppingListModal"
 import { useState, type CSSProperties } from "react"
 import { useShoppingList } from "@/hooks/use-shopping-list"
 import { useConfiguracionWebContext } from '@/contexts/ConfiguracionWebContext'
+import { ctaPrimaryButtonClasses } from '@/lib/cta-button-classes'
 
 const HEADER_LOGO_PATH = '/2.png'
 const HEADER_LOGO_FALLBACK = '/LOGO2.png'
@@ -80,7 +81,7 @@ export default function GlobalAppBar() {
               <button
                 type="button"
                 onClick={() => setIsShoppingListOpen(true)}
-                className="flex shrink-0 items-center gap-2 rounded-lg border border-amber-500/55 bg-amber-400 px-3.5 py-2 text-sm font-bold text-zinc-900 shadow-sm transition-colors hover:bg-amber-300"
+                className={`inline-flex shrink-0 items-center gap-2 px-3.5 py-2 text-sm ${ctaPrimaryButtonClasses}`}
                 title="Mis Pedidos"
               >
                 <ShoppingBag className="size-5" />
@@ -108,7 +109,7 @@ export default function GlobalAppBar() {
               <button
                 type="button"
                 onClick={() => setIsShoppingListOpen(true)}
-                className="flex w-full items-center justify-center gap-2 rounded-lg border border-amber-500/55 bg-amber-400 py-2 px-3 text-sm font-bold text-zinc-900 shadow-sm transition-colors hover:bg-amber-300"
+                className={`flex w-full items-center justify-center gap-2 py-2 px-3 text-sm ${ctaPrimaryButtonClasses}`}
                 title="Mis Pedidos"
                 aria-label={`Mis Pedidos, ${itemCount} producto${itemCount !== 1 ? 's' : ''}`}
               >

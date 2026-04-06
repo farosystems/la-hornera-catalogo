@@ -146,29 +146,27 @@ export default function WhatsAppButton({ product }: WhatsAppButtonProps) {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        {/* Efecto de onda */}
         <div
           className={`absolute inset-0 bg-emerald-400/15 transform transition-transform duration-500 ${
             isHovered ? "translate-x-0" : "-translate-x-full"
           }`}
-        ></div>
+        />
 
         <Image 
           src="/WhatsApp.svg.webp" 
           alt="WhatsApp" 
           width={20} 
           height={20} 
-          className={`mr-2 transition-all duration-300 ${isHovered ? "animate-bounce" : ""}`} 
+          className={`mr-2 shrink-0 transition-all duration-300 ${isHovered ? "animate-bounce" : ""}`} 
         />
 
         <span className="relative z-10">Chatea con tu vendedor!</span>
 
-        {/* Partículas animadas */}
         <div
           className={`absolute top-2 right-4 w-2 h-2 bg-emerald-300/90 rounded-full transition-all duration-300 ${
             isHovered ? "animate-ping" : "opacity-0"
           }`}
-        ></div>
+        />
       </button>
 
       <ZonaSelectorDialog

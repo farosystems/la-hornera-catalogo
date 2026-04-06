@@ -10,7 +10,7 @@ import { formatearPrecio } from '@/lib/supabase-products'
 
 interface ProductSearchProps {
   className?: string
-  /** Barra blanca + botón buscar ámbar (header tipo e-commerce) */
+  /** Barra clara + botón buscar (mismo criterio CTA rojo / texto crema) */
   variant?: 'default' | 'prominent'
 }
 
@@ -124,7 +124,7 @@ function ProductSearchContent({ className = '', variant = 'default' }: ProductSe
     
     return parts.map((part, index) => 
       regex.test(part) ? (
-        <span key={index} className="bg-yellow-200 font-semibold">{part}</span>
+        <span key={index} className="bg-red-900/35 text-amber-100 font-semibold rounded px-0.5">{part}</span>
       ) : part
     )
   }
@@ -138,7 +138,7 @@ function ProductSearchContent({ className = '', variant = 'default' }: ProductSe
   }
 
   const inputClass = prominent
-    ? `w-full pl-9 py-2 sm:py-2 text-sm sm:text-[15px] bg-white border border-stone-300 rounded-lg text-zinc-900 placeholder-stone-500 shadow-sm focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition-all duration-300 ${
+    ? `w-full pl-9 py-2 sm:py-2 text-sm sm:text-[15px] bg-white border border-stone-300 rounded-lg text-zinc-900 placeholder-stone-500 shadow-sm focus:outline-none focus:ring-2 focus:ring-red-900/35 focus:border-red-900 transition-all duration-300 ${
         searchTerm ? 'pr-24 sm:pr-28' : 'pr-[3.25rem] sm:pr-[3.5rem]'
       }`
     : 'w-full pl-12 pr-12 py-3 bg-zinc-900/95 backdrop-blur-sm border border-stone-600 rounded-full text-stone-100 placeholder-stone-500 focus:outline-none focus:ring-2 focus:ring-red-800 focus:border-transparent transition-all duration-300'
@@ -168,7 +168,7 @@ function ProductSearchContent({ className = '', variant = 'default' }: ProductSe
           />
           <Search
             className={`absolute top-1/2 transform -translate-y-1/2 pointer-events-none ${
-              prominent ? 'left-2.5 size-[18px] text-amber-600' : 'left-4 size-5 text-stone-400'
+              prominent ? 'left-2.5 size-[18px] text-red-900/70' : 'left-4 size-5 text-stone-400'
             }`}
           />
           {prominent ? (
@@ -189,7 +189,7 @@ function ProductSearchContent({ className = '', variant = 'default' }: ProductSe
               )}
               <button
                 type="submit"
-                className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-amber-500 text-white shadow-sm transition-colors hover:bg-amber-600"
+                className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-red-900 text-amber-50 shadow-sm transition-colors hover:bg-red-800"
                 aria-label="Buscar"
               >
                 <Search className="size-[17px]" strokeWidth={2.5} />
@@ -482,9 +482,9 @@ export default function ProductSearch({ className = '', variant = 'default' }: P
             disabled
             className={fallbackInputClass}
           />
-          <Search className={`absolute top-1/2 transform -translate-y-1/2 pointer-events-none ${prominent ? 'left-2.5 size-[18px] text-amber-600 opacity-60' : 'left-4 size-5 text-stone-400'}`} />
+          <Search className={`absolute top-1/2 transform -translate-y-1/2 pointer-events-none ${prominent ? 'left-2.5 size-[18px] text-red-900/55 opacity-70' : 'left-4 size-5 text-stone-400'}`} />
           {prominent && (
-            <span className="absolute right-1.5 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-md bg-amber-500/50" aria-hidden />
+            <span className="absolute right-1.5 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-lg bg-red-900/30" aria-hidden />
           )}
         </div>
       </div>

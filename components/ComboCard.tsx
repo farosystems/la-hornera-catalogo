@@ -6,6 +6,7 @@ import { Combo } from "@/lib/products"
 import { useShoppingList } from "@/hooks/use-shopping-list"
 import { isComboValid } from "@/lib/supabase-products"
 import FinancingPlansCombo from "./FinancingPlansCombo"
+import { ctaPrimaryButtonClasses } from "@/lib/cta-button-classes"
 
 interface ComboCardProps {
   combo: Combo
@@ -147,12 +148,12 @@ export default function ComboCard({ combo }: ComboCardProps) {
               }
             }}
             disabled={!isValid}
-            className={`w-full mt-2 py-1.5 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 transition-all duration-300 ${
+            className={`w-full mt-2 py-1.5 font-semibold text-sm flex items-center justify-center gap-2 transition-all duration-300 ${
               !isValid
-                ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                ? 'rounded-xl bg-gray-200 text-gray-400 cursor-not-allowed'
                 : isInFavorites
-                ? 'bg-green-100 text-green-700 hover:bg-red-100 hover:text-red-700'
-                : 'bg-amber-400 text-zinc-900 hover:bg-amber-300 shadow-md'
+                ? 'rounded-xl bg-green-100 text-green-700 hover:bg-red-100 hover:text-red-700'
+                : ctaPrimaryButtonClasses
             }`}
           >
             {!isValid ? (
