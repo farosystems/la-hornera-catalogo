@@ -47,9 +47,6 @@ export default function HomeExploreProductsSection() {
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-stone-100 mb-3 bg-gradient-to-r from-amber-500 to-red-700 bg-clip-text text-transparent">
             Más productos
           </h2>
-          <p className="text-stone-400 max-w-2xl mx-auto text-sm sm:text-base">
-            Seguí explorando el catálogo. Podés cargar más filas o entrar a una categoría.
-          </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
