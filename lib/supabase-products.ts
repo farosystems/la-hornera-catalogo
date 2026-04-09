@@ -608,11 +608,17 @@ export async function getProductsByBrand(brandId: number): Promise<Product[]> {
 }
 
 export async function getProductById(id: string): Promise<Product | null> {
+  const idStr = String(id ?? '').trim()
+  // Evita consultas inválidas (p. ej. /varios/clientes o segmentos que no son bigint)
+  if (!idStr || !/^\d+$/.test(idStr)) {
+    return null
+  }
+
   try {
     const { data, error } = await supabase
       .from('productos')
       .select('*')
-      .eq('id', id)
+      .eq('id', idStr)
       .eq('activo', true)
       .single()
 
@@ -641,7 +647,7 @@ export async function getProductById(id: string): Promise<Product | null> {
     ].filter(img => img && img.trim() !== '') // Filtrar imágenes vacías
 
     // Verificar si el producto tiene una promoción activa
-    const promoId = promoProductsCache.get(parseInt(id))
+    const promoId = promoProductsCache.get(parseInt(idStr, 10))
     const promo = promoId ? promosCache.get(promoId) : undefined
     const precio_con_descuento = promo
       ? data.precio * (1 - promo.descuento_porcentaje / 100)
@@ -649,7 +655,7 @@ export async function getProductById(id: string): Promise<Product | null> {
 
     // Debug para productos con promo
     if (promo) {
-      console.log(`🔍 getProductById - Producto ${id} con promo:`, {
+      console.log(`🔍 getProductById - Producto ${idStr} con promo:`, {
         promoId,
         promo: promo.nombre,
         descuento: promo.descuento_porcentaje,
